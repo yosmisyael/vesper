@@ -1,0 +1,21 @@
+# package list
+
+# systems
+hyprland # for tiling window manager
+hyprpaper # for managing wallpaper
+waybar # for displaying status bar
+xdg-desktop-portal 
+xdg-desktop-portal-gtk 
+xdg-desktop-portal-hyprland 
+sddm # for displaying login screen
+
+# functionallity
+dunst # display notifications
+aylurs-gtk-shell # widget (AUR)
+pavucontrol # for controlling audio level
+brightnessctl # for managing lcd brightness level
+cliphist # for clipboard manager
+dolphin # for file manager
+
+# fonts
+otf-font-awesome, otf-font-awesome-5
