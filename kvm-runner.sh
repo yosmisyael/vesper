@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 [start|shutdown]"
+    exit 1
+fi
+
+action="$1"
+
+case "$action" in
+    start)
+        echo "Starting KVM services and default network..."
+        sudo systemctl start libvirtd.service
+        sudo virsh net-start default
+        echo "KVM services and default network started."
+        ;;
+    shutdown)
+        echo "Shutting down default network and KVM services..."
+        sudo virsh net-destroy default
+        sudo systemctl stop libvirtd.service libvirtd-admin.socket libvirtd-ro.socket libvirtd.socket
+
+        echo "KVM services and default network stopped."
+        ;;
+    *)
+        echo "Invalid argument: $action"
+        echo "Usage: $0 [start|shutdown]"
+        exit 1
+        ;;
+esac
+
+exit 0

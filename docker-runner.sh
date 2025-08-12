@@ -1,0 +1,47 @@
+#!/bin/bash
+ACTION=$1
+
+case "$ACTION" in
+    start)
+        echo "Attempting to start Docker service..."
+        systemctl start docker.service
+        if [ $? -eq 0 ]; then
+            echo "Docker service started successfully."
+        else
+            echo "Failed to start Docker service. Check system logs for details."
+            exit 1
+        fi
+        ;;
+
+    shutdown)
+        echo "Attempting to stop all running Docker containers..."
+        RUNNING_CONTAINERS=$(docker ps -q)
+
+        if [ -n "$RUNNING_CONTAINERS" ]; then
+            docker stop $RUNNING_CONTAINERS
+            if [ $? -eq 0 ]; then
+                echo "All running containers stopped successfully."
+            else
+                echo "Warning: Failed to stop all containers. Continuing with service shutdown."
+            fi
+        else
+            echo "No running containers found."
+        fi
+
+        echo "Attempting to stop Docker service and socket..."
+        systemctl stop docker.service docker.socket
+        if [ $? -eq 0 ]; then
+            echo "Docker service and socket stopped successfully."
+        else
+            echo "Failed to stop Docker service and socket. Check system logs for details."
+            exit 1
+        fi
+        ;;
+
+    *)
+        echo "Usage: $0 [start|shutdown]"
+        exit 1
+        ;;
+esac
+
+exit 0 
