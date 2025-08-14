@@ -17,12 +17,11 @@ killall -e xdg-desktop-portal
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=hyprland
 
 systemctl --user stop pipewire
-# systemctl --user stop wireplumber
 systemctl --user stop xdg-desktop-portal
-# systemctl --user stop xdg-desktop-portal-gnome
-# systemctl --user stop xdg-desktop-portal-kde
 systemctl --user stop xdg-desktop-portal-gtk
 systemctl --user stop xdg-desktop-portal-hyprland
+
+swww-daemon
 
 /usr/lib/xdg-desktop-portal-hyprland
 
@@ -33,9 +32,6 @@ fi
 /usr/lib/xdg-desktop-portal
 
 systemctl --user start pipewire
-# systemctl --user start wireplumber
 systemctl --user start xdg-desktop-portal
-# systemctl --user start xdg-desktop-portal-gnome
-# systemctl --user start xdg-desktop-portal-kde
 systemctl --user start xdg-desktop-portal-gtk
 systemctl --user start xdg-desktop-portal-hyprland
