@@ -8,18 +8,12 @@
 # ~   | |/ _` | | | | '_ \ / __| '_ \ / _ \ '__|   ~
 # ~   | | (_| | |_| | | | | (__| | | |  __/ |      ~
 # ~   |_|\__,_|\__,_|_| |_|\___|_| |_|\___|_|      ~
-# ~						                                     ~
-# ~						                                     ~
+# ~						                           ~
+# ~						                           ~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # by yosmisyael (2024)
 # --------------------------------------------------
 
-killall waybar
-pkill waybar
+killall -9 waybar
 
-if [[ $USER = "yosev" ]]
-then
-    waybar -c ~/.config/vesper/waybar/config.jsonc -s ~/.config/vesper/waybar/style.css
-else
-    waybar &
-fi
+waybar &
