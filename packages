@@ -1,21 +1,45 @@
-# package list
+hyprland
+xdg-desktop-portal
+xdg-utils 
+xdg-desktop-portal-hyprland
+gtk3
+kitty
+polkit
+polkit-gnome
+brightnessctl
+hyprpicker
+rofi
+nwg-look
+oh-my-zsh
+zsh
+python-pywal16
+qt6-wayland
+qt5-wayland
+udiskie # automount removable device
+matugen-bin # python-pywal16 alternative
+hypridle
+hyprlock
+sddm
+cliphist
+wl-clipboard
+blueman
+imagemagick
+rofi
 
-# systems
-hyprland # for tiling window manager
-hyprpaper # for managing wallpaper
-waybar # for displaying status bar
-xdg-desktop-portal 
-xdg-desktop-portal-gtk 
-xdg-desktop-portal-hyprland 
-sddm # for displaying login screen
+[AUR]
+swww
+waybar
+power-profiles-daemon
+papirus-folders
+nitch
+wlogout 
 
-# functionallity
-dunst # display notifications
-aylurs-gtk-shell # widget (AUR)
-pavucontrol # for controlling audio level
-brightnessctl # for managing lcd brightness level
-cliphist # for clipboard manager
-dolphin # for file manager
+[applications]
+firefox
+nautilus
 
-# fonts
-otf-font-awesome, otf-font-awesome-5
+[utils]
+otf-font-awesome
+otf-font-aweseom-5
+jetbrains-mono-nerd
+ffmpegthumbs
