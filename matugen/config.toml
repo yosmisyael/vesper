@@ -1,0 +1,35 @@
+[config.wallpaper]
+command = 'swww'
+arguments = ['img', '--transition-type', 'center', '--transition-step', '15', 'transition-fps', '60']
+set = true
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/conf/colors.conf'
+post_hook = 'hyprctl reload'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar-colors.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = '~/.config/vesper/scripts/waybar.sh'
+
+[templates.wlogout]
+input_path = '~/.config/matugen/templates/wlogout-colors.css'
+output_path = '~/.config/wlogout/colors.css'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/colors.conf'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk3-colors.conf'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk4-colors.conf'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+output_path = '~/.config/rofi/colors.rasi'
