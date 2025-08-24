@@ -1,0 +1,132 @@
+//                                                                
+//                                                                
+//     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
+//    |  $$  /$$//$$__  $$ /$$_____/ /$$__  $$ /$$__  $$ /$$__  $$
+//     \  $$/$$/| $$$$$$$$|  $$$$$$ | $$  \ $$| $$$$$$$$| $$  \__/
+//      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$      
+//       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$      
+//        \_/    \_______/|_______/ | $$____/  \_______/|__/      
+//                                  | $$                          
+//                                  | $$                          
+//                                  |__/
+//
+// rofi config for logout and system power manager
+// by yosmisyael (2024)
+
+@theme "~/.config/rofi/colors.rasi"
+
+* {
+    font: "JetBrainsMono Nerd Font Propo 18";
+}
+
+configuration {
+    show-icons: false;
+    display-drun: "";
+    disable-history: true;
+    click-to-exit: true;
+    location: 0;
+}
+
+window {
+    text-color: @on-surface;
+    background-color: #00000000;
+    border: 0px;
+    border-color: transparent;
+    border-radius: 0px;
+    width: 86px;
+    height: 38.9%;
+    location: east;
+    anchor: east;
+    x-offset: -20px;
+    y-offset: 0px;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ "listview" ];
+    spacing: 0px;
+    padding: 0px;
+    border: 0px;
+    border-radius: 0px;
+    border-color: transparent;
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 5;
+    cycle: false;
+    dynamic: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: false;
+    fixed-columns: false;
+    spacing: 16px;
+    padding: 8px;
+    border: 0px;
+    border-radius: 0px;
+    border-color: transparent;
+}
+
+element {
+    background-color: @surface-container;
+    text-color: @on-surface;
+    orientation: horizontal;
+    border-radius: 16px;
+    spacing: 0px;
+    padding: 16px;
+    border: 2px solid;
+    border-color: transparent;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+element normal.normal {
+    background-color: @surface-container;
+    text-color: @on-surface;
+    border-color: transparent;
+}
+
+element normal.urgent {
+    background-color: @error-container;
+    text-color: @on-error-container;
+    border-color: @error;
+}
+
+element normal.active {
+    background-color: @primary-container;
+    text-color: @on-primary-container;
+    border-color: @primary;
+}
+
+element selected.normal {
+    background-color: @primary-container;
+    text-color: @on-primary-container;
+    border-color: @primary;
+}
+
+element selected.urgent {
+    background-color: @error;
+    text-color: @on-error;
+    border-color: @error;
+}
+
+element selected.active {
+    background-color: @primary;
+    text-color: @on-primary;
+    border-color: @primary;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    cursor: inherit;
+}
+
+element-text selected {
+    background-color: transparent;
+    text-color: inherit;
+}
