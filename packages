@@ -16,30 +16,40 @@ python-pywal16
 qt6-wayland
 qt5-wayland
 udiskie # automount removable device
-matugen-bin # python-pywal16 alternative
+matugen-bin # pywal alternative
 hypridle
 hyprlock
 sddm
 cliphist
 wl-clipboard
-blueman
+blueman 
 imagemagick
-rofi
+grim # screenshot utils
+jq # screenshot utils
+slurp # screenshot utils
+fastfetch
+kvantum
+kvantum-qt5
+qt5ct 
+qt6ct
 
 [AUR]
 swww
 waybar
 power-profiles-daemon
 papirus-folders
-nitch
-wlogout 
+waypaper
 
 [applications]
 firefox
-nautilus
+dolphin
+rofi
 
 [utils]
 otf-font-awesome
 otf-font-aweseom-5
 jetbrains-mono-nerd
 ffmpegthumbs
+sddm-astronout-theme (github)
+
+
