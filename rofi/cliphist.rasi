@@ -1,235 +1,216 @@
+//                                                                
+//                                                                
+//     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
+//    |  $$  /$$//$$__  $$ /$$_____/ /$$__  $$ /$$__  $$ /$$__  $$
+//     \  $$/$$/| $$$$$$$$|  $$$$$$ | $$  \ $$| $$$$$$$$| $$  \__/
+//      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$      
+//       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$      
+//        \_/    \_______/|_______/ | $$____/  \_______/|__/      
+//                                  | $$                          
+//                                  | $$                          
+//                                  |__/
+//
+// rofi config for clipboard manager
+// by yosmisyael (2024)
+
 configuration {
-    modi:                       "drun,filebrowser,window,run";
-    font:                       "CaskaydiaMono Nerd Font 13";
-    show-icons:                 true;
-    icon-theme:                 "Tela-circle-dracula";
-    display-drun:                " ";
-    display-run:                 " ";
-    display-filebrowser:         " ";
-    display-window:              " ";
-  	drun-display-format:        "{name}";
-    hover-select:               false;
-    scroll-method:              1;
-    me-select-entry:            "";
-    me-accept-entry:            "MousePrimary";
-    window-format:              "{w} · {c} · {t}";
-    
+    modi:                  "clipboard:greenclip print";
+    font:                  "SF Pro Display 12";
+    show-icons:            false;
+    display-clipboard:     "󰅌";
+    hover-select:          false;
+    scroll-method:         1;
+    me-select-entry:       "";
+    me-accept-entry:       "MousePrimary";
 }
 
+@theme "~/.config/rofi/colors.rasi"
+
+// Main Window - Clipboard Manager Style
 window {
-    width:                        20em;
-    x-offset:                     -0.7em;
-    y-offset:                     2.6em;
-    spacing:                      0px;
-    padding:                      0px;
-    margin:                       0px; 
-    color:                        #FFFFFF;
-    border:                       3px;
-    border-color:                 #ffffff;
-    cursor:                       "default";
-    transparency:                 "real";
-    location:                     northeast;
-    anchor:                       northeast;
-    fullscreen:                   false;
-    enabled:                      true;
-    border-radius:                10px;
-    background-color:             transparent;
+    height:                      28em;
+    width:                       45em;
+    transparency:                "real";
+    fullscreen:                  false;
+    enabled:                     true;
+    cursor:                      "default";
+    spacing:                     0em;
+    padding:                     0em;
+    border:                      2px solid;
+    border-color:                @primary;
+    location:                    center;
+    background-color:            @surface;
+    anchor:                      center;
+    border-radius:               20px;
+    expand:                      false;
 }
 
 mainbox {
     enabled:                     true;
     spacing:                     0em;
     padding:                     0em;
-    orientation:                 horizontal;
-    children:                    [ "listbox" ];
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listview" ];
     background-color:            transparent;
 }
 
-/* ---- Imagebox ---- */
-imagebox {
-    padding:                      0em;
-    background-color:             transparent;
-    orientation:                  horizontal;
-    children:                     [ "inputbar" ];
-}
-
+// Input Bar for Search/Filter
 inputbar {
     enabled:                     true;
     spacing:                     0em;
-    padding:                     0em;
+    padding:                     1.5em 2em;
+    border-radius:               20px 20px 0px 0px;
     children:                    [ "textbox-prompt-colon", "entry" ];
-    background-color:            transparent;
+    background-color:            @surface-container-high;
+    border:                      0px 0px 1px 0px solid;
+    border-color:                @outline-variant;
 }
 
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "  ";
-    padding:                     1em 1em 0em 0em;
-    text-color:                  @foreground;
-    border-radius:               2em 0em 0em 2em;
-    background-color:            @background;
+    str:                         "󰅌 ";
+    padding:                     0.8em 0.5em;
+    text-color:                  @primary;
+    background-color:            transparent;
+    font:                        "SF Pro Display 14";
 }
 
 entry {
     enabled:                     true;
-    border-radius:               0em 2em 2em 0em;
-    spacing:                     1em;
-    padding:                     1em;
-    background-color:            @background;
-    text-color:                  @foreground;
+    spacing:                     0em;
+    padding:                     0.8em 1em;
+    background-color:            @surface-container;
+    text-color:                  @on-surface;
     cursor:                      text;
-    placeholder:                 "Search";
-    placeholder-color:           inherit;
+    placeholder:                 "Search clipboard history...";
+    placeholder-color:           @outline;
+    border-radius:               12px;
 }
 
-// Lists //
-listbox {
-    padding:                     0em;
-    spacing:                     0em;
-    orientation:                 vertical;
-    children:                    [ "inputbar", "listview" , "message" ];
-    background-color:            @background;
-}
-
+// Clipboard History List
 listview {
-    padding:                     1em;
-    spacing:                     0em;
-    margin:                      0em;
+    padding:                     1em 2em 2em 2em;
+    spacing:                     0.5em;
     enabled:                     true;
     columns:                     1;
-    lines:                       8;
+    lines:                       10;
     cycle:                       true;
     dynamic:                     true;
-    scrollbar:                   false;
+    scrollbar:                   true;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
     cursor:                      "default";
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
 }
 
-
-// Modes //
-mode-switcher {
-    orientation:                 vertical;
-    width:                       6.6em;
-    enabled:                     true;
-    padding:                     1.5em;
-    spacing:                     1.5em;
-    background-color:            transparent;
-}
-
-button {
-    cursor:                      pointer;
-    border-radius:               2em;
-    background-color:            @background;
-    text-color:                  @foreground;
-}
-
-button selected {
-    background-color:            #ffffff;
-    text-color:                  @background;
-}
-
-// Elements //
+// Clipboard Entry Elements
 element {
     enabled:                     true;
-    padding:                     1em;
-    margin:                      0em;
+    spacing:                     0.8em;
+    padding:                     1.2em 1.5em;
+    border-radius:               12px;
+    background-color:            transparent;
+    text-color:                  @on-surface;
     cursor:                      pointer;
-    background-color:            transparent;
-    text-color:                  @foreground;
-    border-radius:               1.1em;
+    orientation:                 horizontal;
+    border:                      1px solid;
+    border-color:                transparent;
 }
 
-element selected.normal {
-    background-color:            #ffffff;
-    text-color:                  @foreground;
-    border-radius:               1.5em;
+element.normal.normal {
+    background-color:            @surface-container-low;
+    text-color:                  @on-surface;
+    border-color:                @outline-variant;
 }
 
-element normal.normal {
-    background-color:            inherit;
-    text-color:                  @foreground;
+element.selected.normal {
+    background-color:            @primary-container;
+    text-color:                  @on-primary-container;
+    border-color:                @primary;
 }
 
-element normal.urgent {
-    background-color:            inherit;
-    text-color:                  @foreground;
+element.alternate.normal {
+    background-color:            @surface-container;
+    text-color:                  @on-surface;
+    border-color:                @outline-variant;
 }
 
-element normal.active {
-    background-color:            inherit;
-    text-color:                  @foreground;
+element.normal.urgent {
+    background-color:            @error-container;
+    text-color:                  @on-error-container;
+    border-color:                @error;
 }
 
-element selected.urgent {
-    background-color:            inherit;
-    text-color:                  @foreground;
+element.selected.urgent {
+    background-color:            @error;
+    text-color:                  @on-error;
+    border-color:                @error;
 }
 
-element selected.active {
-    background-color:            inherit;
-    text-color:                  @foreground;
+element.normal.active {
+    background-color:            @tertiary-container;
+    text-color:                  @on-tertiary-container;
+    border-color:                @tertiary;
 }
 
-element alternate.normal {
-    background-color:            inherit;
-    text-color:                  @foreground;
+element.selected.active {
+    background-color:            @tertiary;
+    text-color:                  @on-tertiary;
+    border-color:                @tertiary;
 }
 
-element alternate.urgent {
-    background-color:            inherit;
-    text-color:                  @foreground;
-}
-
-element alternate.active {
-    background-color:            inherit;
-    text-color:                  @foreground;
-}
-
-element-icon {
-    size:                        0em;
-    cursor:                      inherit;
-    background-color:            transparent;
-    text-color:                  inherit;
-    content:                     "";
-}
-
+// Clipboard Entry Text
 element-text {
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
-    cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
+    expand:                      true;
+    horizontal-align:            0.0;
+    vertical-align:              0.5;
+    cursor:                      inherit;
+    font:                        "SF Pro Display 11";
 }
 
-/*****----- Message -----*****/
+// Scrollbar for Long Clipboard History
+scrollbar {
+    width:                       6px;
+    border:                      0px;
+    handle-color:                @primary;
+    handle-width:                6px;
+    padding:                     0px 4px;
+    background-color:            @surface-container-highest;
+    border-radius:               8px;
+    margin:                      0px 0px 0px 8px;
+}
+
+// Message for Empty Clipboard
 message {
-    background-color:            transparent;
-    border:                      0em;
-    margin:                      2.2em 0em 0em 0em;
-    padding:                     0em;
-    spacing:                     0em;
-    border-radius:               1.1em;
+    enabled:                     true;
+    padding:                     2em;
+    border-radius:               16px;
+    background-color:            @surface-container;
+    text-color:                  @on-surface-variant;
+    border:                      1px solid;
+    border-color:                @outline-variant;
 }
 
 textbox {
-    padding:                     2em;
-    margin:                      0em;
-    border-radius:               0em;
-    background-color:            @background;
-    text-color:                  @foreground;
+    background-color:            transparent;
+    text-color:                  inherit;
     vertical-align:              0.5;
-    horizontal-align:            0.0;
+    horizontal-align:            0.5;
+    font:                        "SF Pro Display 12";
 }
 
+// Error Message Styling
 error-message {
     padding:                     2em;
-    border-radius:               2.1em;
-    background-color:            @background;
-    text-color:                  @foreground;
+    border-radius:               16px;
+    background-color:            @error-container;
+    text-color:                  @on-error-container;
+    border:                      1px solid;
+    border-color:                @error;
 }
