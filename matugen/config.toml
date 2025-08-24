@@ -1,3 +1,19 @@
+#
+#                                                                
+#                                                                
+#     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
+#    |  $$  /$$//$$__  $$ /$$_____/ /$$__  $$ /$$__  $$ /$$__  $$
+#     \  $$/$$/| $$$$$$$$|  $$$$$$ | $$  \ $$| $$$$$$$$| $$  \__/
+#      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$      
+#       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$      
+#        \_/    \_______/|_______/ | $$____/  \_______/|__/      
+#                                  | $$                          
+#                                  | $$                          
+#                                  |__/
+# Matugen Config
+# 
+# by yosmisyael (2024)
+
 [config.wallpaper]
 command = 'swww'
 arguments = ['img', '--transition-type', 'center', '--transition-step', '15', 'transition-fps', '60']
@@ -5,7 +21,7 @@ set = true
 
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/conf/colors.conf'
+output_path = '~/.config/hypr/modules/colors.conf'
 post_hook = 'hyprctl reload'
 
 [templates.waybar]
@@ -33,3 +49,12 @@ output_path = '~/.config/gtk-4.0/colors.css'
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
+
+[templates.dunst]
+input_path = '~/.config/matugen/templates/dunstrc-colors'
+output_path = '~/.config/dunst/dunstrc'
+post_hook = 'pkill -SIGUSR2 dunst'
+
+[templates.waypaper]
+input_path = '~/.config/matugen/templates/waypaper-colors'
+output_path = '~/.config/waypaper/config.ini'
