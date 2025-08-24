@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 #                                                                
 #                                                                
@@ -14,23 +14,6 @@
 #
 # by yosmisyael (2024)
 
-# Manages waybar process
-# Usage:
-#   ./waybar.sh toggle    - Turns Waybar on if it's off, or otherwise.
-#   ./waybar.sh           - Reloads Waybar.
+# Script to start swww daemon
 
-
-if [ "$1" == "toggle" ]; then
-  if pgrep -x waybar > /dev/null; then
-    killall waybar
-  else
-    waybar &
-  fi 
-else
-  if pgrep -x waybar > /dev/null; then
-    killall waybar 
-    sleep 0.2
-  fi
-  waybar &
-fi 
-
+swww-daemon

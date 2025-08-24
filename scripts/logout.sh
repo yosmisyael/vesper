@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 #                                                                
 #                                                                
@@ -14,23 +14,28 @@
 #
 # by yosmisyael (2024)
 
-# Manages waybar process
-# Usage:
-#   ./waybar.sh toggle    - Turns Waybar on if it's off, or otherwise.
-#   ./waybar.sh           - Reloads Waybar.
+# Script to manage hyprland logout and system power 
 
+options="󰌾\n\n󰍃\n󰜉\n󰐥"
 
-if [ "$1" == "toggle" ]; then
-  if pgrep -x waybar > /dev/null; then
-    killall waybar
-  else
-    waybar &
-  fi 
-else
-  if pgrep -x waybar > /dev/null; then
-    killall waybar 
-    sleep 0.2
-  fi
-  waybar &
-fi 
+chosen="$(echo -e "$options" | rofi -dmenu -theme ~/.config/rofi/logout.rasi -p "")"
 
+case $chosen in
+    "󰌾")
+        hyprlock
+        ;;
+    "")
+        systemctl suspend
+        ;;
+    "󰍃")
+        hyprctl dispatch exit
+        ;;
+    "󰜉")
+        systemctl reboot
+        ;;
+    "󰐥")
+        systemctl poweroff
+        ;;
+    *)
+        ;;
+esac

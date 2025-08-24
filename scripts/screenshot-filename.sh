@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash
 
 #                                                                
 #                                                                
@@ -14,23 +14,15 @@
 #
 # by yosmisyael (2024)
 
-# Manages waybar process
-# Usage:
-#   ./waybar.sh toggle    - Turns Waybar on if it's off, or otherwise.
-#   ./waybar.sh           - Reloads Waybar.
+# Script to manage screenshot file name 
 
+NAME="screenshot_$(date +%Y%m%d_%H%M%S).png"
 
-if [ "$1" == "toggle" ]; then
-  if pgrep -x waybar > /dev/null; then
-    killall waybar
-  else
-    waybar &
-  fi 
-else
-  if pgrep -x waybar > /dev/null; then
-    killall waybar 
-    sleep 0.2
-  fi
-  waybar &
-fi 
+# Alternative formats (uncomment to use):
+# NAME="screen_$(date +%Y-%m-%d_%H-%M-%S).png"              # ISO format with dashes
+# NAME="capture_$(date +%d%b%Y_%H%M%S | tr '[:upper:]' '[:lower:]').png"  # Month abbreviation
+# NAME="shot_$(date +%s).png"                               # Unix timestamp
+# NAME="screenshot_$(date +%Y%m%d_%H%M%S)_$(hostname).png"   # Include hostname
 
+# Export for use in other scripts
+export SCREENSHOT_NAME="$NAME"
