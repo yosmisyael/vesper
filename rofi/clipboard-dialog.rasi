@@ -1,0 +1,160 @@
+//                                                                
+//                                                                
+//     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
+//    |  $$  /$$//$$__  $$ /$$_____/ /$$__  $$ /$$__  $$ /$$__  $$
+//     \  $$/$$/| $$$$$$$$|  $$$$$$ | $$  \ $$| $$$$$$$$| $$  \__/
+//      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$      
+//       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$      
+//        \_/    \_______/|_______/ | $$____/  \_______/|__/      
+//                                  | $$                          
+//                                  | $$                          
+//                                  |__/
+//
+// rofi config for clipboard dialog
+// by yosmisyael (2024)
+
+configuration {
+    font:                  "SF Pro Display 12";
+    show-icons:            false;
+    hover-select:          false;
+    scroll-method:         1;
+    me-select-entry:       "";
+    me-accept-entry:       "MousePrimary";
+}
+
+@theme "~/.config/rofi/colors.rasi"
+
+// Compact Confirmation Dialog Window
+window {
+    height:                      12em;
+    width:                       25em;
+    transparency:                "real";
+    fullscreen:                  false;
+    enabled:                     true;
+    cursor:                      "default";
+    spacing:                     0em;
+    padding:                     0em;
+    border:                      2px solid;
+    border-color:                @error;
+    location:                    center;
+    background-color:            @surface;
+    anchor:                      center;
+    border-radius:               16px;
+    expand:                      false;
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     0em;
+    padding:                     0em;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listview" ];
+    background-color:            transparent;
+}
+
+// Message/Prompt Area
+inputbar {
+    enabled:                     true;
+    spacing:                     0em;
+    padding:                     2em 2em 1em 2em;
+    border-radius:               16px 16px 0px 0px;
+    children:                    [ "textbox-prompt-colon" ];
+    background-color:            @surface-container-high;
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      true;
+    str:                         "⚠️";
+    padding:                     0em;
+    text-color:                  @error;
+    background-color:            transparent;
+    font:                        "SF Pro Display 16";
+    horizontal-align:            0.5;
+    vertical-align:              0.5;
+}
+
+// Options List
+listview {
+    padding:                     1em 2em 2em 2em;
+    spacing:                     0.8em;
+    enabled:                     true;
+    columns:                     2;
+    lines:                       1;
+    cycle:                       false;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    cursor:                      "default";
+    background-color:            transparent;
+    text-color:                  @on-surface;
+}
+
+// Confirmation Button Elements
+element {
+    enabled:                     true;
+    spacing:                     0em;
+    padding:                     0.8em 1.5em;
+    border-radius:               20px;
+    background-color:            @surface-container;
+    text-color:                  @on-surface;
+    cursor:                      pointer;
+    orientation:                 horizontal;
+    border:                      1px solid;
+    border-color:                @outline-variant;
+}
+
+element.normal.normal {
+    background-color:            @surface-container;
+    text-color:                  @on-surface;
+    border-color:                @outline;
+}
+
+element.selected.normal {
+    background-color:            @primary;
+    text-color:                  @on-primary;
+    border-color:                @primary;
+}
+
+element.alternate.normal {
+    background-color:            @error-container;
+    text-color:                  @on-error-container;
+    border-color:                @error;
+}
+
+element.selected.alternate {
+    background-color:            @error;
+    text-color:                  @on-error;
+    border-color:                @error;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    expand:                      true;
+    horizontal-align:            0.5;
+    vertical-align:              0.5;
+    cursor:                      inherit;
+    font:                        "SF Pro Display 11";
+}
+
+// Message Box for Additional Info
+message {
+    enabled:                     true;
+    padding:                     1em 2em;
+    border-radius:               0px 0px 16px 16px;
+    background-color:            @surface-container-low;
+    text-color:                  @on-surface-variant;
+    border:                      0px 0px 0px 0px;
+}
+
+textbox {
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    font:                        "SF Pro Display 10";
+}
