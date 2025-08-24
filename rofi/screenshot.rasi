@@ -1,0 +1,173 @@
+//                                                                
+//                                                                
+//     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
+//    |  $$  /$$//$$__  $$ /$$_____/ /$$__  $$ /$$__  $$ /$$__  $$
+//     \  $$/$$/| $$$$$$$$|  $$$$$$ | $$  \ $$| $$$$$$$$| $$  \__/
+//      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$      
+//       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$      
+//        \_/    \_______/|_______/ | $$____/  \_______/|__/      
+//                                  | $$                          
+//                                  | $$                          
+//                                  |__/
+//
+// rofi config for screenshot launcher
+// by yosmisyael (2024)
+
+configuration {
+    font:                  "SF Pro Display 12";
+    show-icons:            true;
+    icon-theme:            "Papirus-Dark";
+    hover-select:          false;
+    scroll-method:         1;
+    me-select-entry:       "";
+    me-accept-entry:       "MousePrimary";
+}
+
+@theme "~/.config/rofi/colors.rasi"
+
+// Main Window - Screenshot Menu Style
+window {
+    height:                      12.3em;
+    width:                       24em;
+    transparency:                "real";
+    fullscreen:                  false;
+    enabled:                     true;
+    cursor:                      "default";
+    spacing:                     0em;
+    padding:                     0em;
+    border:                      2px solid;
+    border-color:                @primary;
+    location:                    center;
+    background-color:            @surface;
+    anchor:                      center;
+    border-radius:               1.8em;
+    expand:                      false;
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     0em;
+    padding:                     0em;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listview" ];
+    background-color:            transparent;
+}
+
+// Header with Screenshot Icon and Info
+inputbar {
+    enabled:                     true;
+    spacing:                     0em;
+    padding:                     1em;
+    border-radius:               24px 24px 0px 0px;
+    children:                    [ "textbox-prompt-colon" ];
+    background-color:            @surface-container-high;
+    border:                      0px 0px 1px 0px solid;
+    border-color:                @outline-variant;
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      true;
+    str:                         "Screenshot";
+    padding:                     0em;
+    text-color:                  @on-surface;
+    background-color:            transparent;
+    font:                        "SF Pro Display 15";
+    horizontal-align:            0.5;
+    vertical-align:              0.5;
+}
+
+// Options List
+listview {
+    padding:                     1em;
+    spacing:                     0.8em;
+    enabled:                     true;
+    columns:                     1;
+    lines:                       8;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                false;
+    fixed-columns:               true;
+    cursor:                      "default";
+    background-color:            transparent;
+    text-color:                  @on-surface;
+}
+
+// Screenshot Option Elements
+element {
+    enabled:                     true;
+    spacing:                     1em;
+    padding:                     1em 2em;
+    border-radius:               1em;
+    background-color:            @surface-container;
+    text-color:                  @on-surface;
+    cursor:                      pointer;
+    orientation:                 horizontal;
+    border:                      1px solid;
+    border-color:                @outline-variant;
+}
+
+element.normal.normal {
+    background-color:            @surface-container;
+    text-color:                  @on-surface;
+    border-color:                @outline-variant;
+}
+
+element.selected.normal {
+    background-color:            @primary-container;
+    text-color:                  @on-primary-container;
+    border-color:                @primary;
+}
+
+element.alternate.normal {
+    background-color:            @surface-container-low;
+    text-color:                  @on-surface;
+    border-color:                @outline-variant;
+}
+
+element.selected.alternate {
+    background-color:            @secondary-container;
+    text-color:                  @on-secondary-container;
+    border-color:                @secondary;
+}
+
+// Icon and Text Layout
+element-icon {
+    size:                        1.8em;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+    border-radius:               8px;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    expand:                      true;
+    horizontal-align:            0.0;
+    vertical-align:              0.5;
+    cursor:                      inherit;
+    font:                        "SF Pro Display 11";
+}
+
+// Message Area for Additional Info
+message {
+    enabled:                     true;
+    padding:                     1em 2em;
+    border-radius:               0px 0px 24px 24px;
+    background-color:            @surface-container-low;
+    text-color:                  @on-surface-variant;
+    border:                      1px 0px 0px 0px solid;
+    border-color:                @outline-variant;
+}
+
+textbox {
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    font:                        "SF Pro Display 10";
+}
