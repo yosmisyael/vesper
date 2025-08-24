@@ -1,11 +1,26 @@
+//                                                                
+//                                                                
+//     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
+//    |  $$  /$$//$$__  $$ /$$_____/ /$$__  $$ /$$__  $$ /$$__  $$
+//     \  $$/$$/| $$$$$$$$|  $$$$$$ | $$  \ $$| $$$$$$$$| $$  \__/
+//      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$      
+//       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$      
+//        \_/    \_______/|_______/ | $$____/  \_______/|__/      
+//                                  | $$                          
+//                                  | $$                          
+//                                  |__/
+//
+// rofi config for app launcher
+// by yosmisyael (2024)
+
 configuration {
     modi:                  "drun,run,filebrowser,window";
     font:                  "SF Pro Display 13";
     show-icons:            true;
     display-drun:          "";
-    display-run:           "";
+    display-run:           "";
     display-filebrowser:   "";
-    display-window:        "";
+    display-window:        "";
     drun-display-format:   "{name}";
     hover-select:          false;
     scroll-method:         1;
@@ -26,13 +41,12 @@ window {
     cursor:                "default";
     spacing:               0em;
     padding:               0em;
-    border:                3px solid;
+    border:                2px solid;
     border-color:          @on-surface;
     location:              center;
-    background-color:      @error-container;
+    background-color:      @surface;
     anchor:                center;
-    border-radius:         2em;
-    expand:                false; 
+    border-radius:         32px;
 }
 
 mainbox {
@@ -42,7 +56,8 @@ mainbox {
     orientation:           vertical;
     children:              [ "inputbar", "content" ];
     background-color:      transparent;
-    background-image:      url("~/.cache/rofi/wall.blur", height);
+    background-image:      url("~/.cache/vesper/wall.blur", height);
+    border-radius:         22px;
 }
 
 // Input Bar with Background Image
@@ -50,10 +65,10 @@ inputbar {
     enabled:               true;
     spacing:               0em;
     padding:               5em;
-    border-radius:         2em 2em 0 0;
     children:              [ "entry" ];
     background-color:      transparent;
     background-image:      url("~/.cache/rofi/wall.thmb", width);
+    border-radius:         22px 22px 0px 0px;
 }
 
 entry {
@@ -75,6 +90,7 @@ content {
     orientation:           horizontal;
     children:              [ "mode-switcher", "listview" ];
     background-color:      @surface;
+    border-radius:         0px 0px 22px 22px;
 }
 
 listview {
@@ -109,7 +125,7 @@ mode-switcher {
 
 button {
     enabled:               true;
-    padding:               24px 27px;
+    padding:               24px;
     expand:                false;
     font:                  "JetBrainsMono Nerd Font Propo 12";
     border-radius:         50%;
@@ -176,7 +192,7 @@ scrollbar {
     handle-color:          @outline;
     handle-width:          6px;
     padding:               0px;
-    background-color:      @surface-container-lowest;
+    background-color:      @surface-variant;
     border-radius:         12px;
 }
 
