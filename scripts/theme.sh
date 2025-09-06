@@ -85,3 +85,7 @@ generate_profile "$wallpaper_path" "$output_profile"
 swww img "$wallpaper_path" --transition-type center --transition-step 15 --transition-fps 60
 
 matugen image "$wallpaper_path"
+
+~/.config/vesper/scripts/omp-theme.sh
+
+$HOME/.config/vesper/scripts/setup-sddm-wall.sh "$wallpaper_path"
