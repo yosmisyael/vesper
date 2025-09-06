@@ -1,8 +1,9 @@
-# VESPER: An Modern and Elegant Hyprland Ricing for Unparalelled Productivity
+# vesper: Modern and Elegant Hyprland Ricing for Unparalelled Productivity
 
-Currently, it didn't have installer script yet
+Currently, it didn't have installer script yet :)
 
 if u want to try, just clone the project and move all directories into your .config
+make sure to install all required deps listed in packages file
 
 Preview Video:
 
