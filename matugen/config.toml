@@ -29,10 +29,6 @@ input_path = '~/.config/matugen/templates/waybar-colors.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = '~/.config/vesper/scripts/waybar.sh'
 
-[templates.wlogout]
-input_path = '~/.config/matugen/templates/wlogout-colors.css'
-output_path = '~/.config/wlogout/colors.css'
-
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
 output_path = '~/.config/kitty/colors.conf'
@@ -58,3 +54,7 @@ post_hook = 'pkill -SIGUSR2 dunst'
 [templates.waypaper]
 input_path = '~/.config/matugen/templates/waypaper-colors'
 output_path = '~/.config/waypaper/config.ini'
+
+[templates.ohmyposh]
+input_path = '~/.config/matugen/templates/ohmyposh'
+output_path = '~/.config/oh-my-posh/palette.json'
