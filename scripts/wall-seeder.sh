@@ -34,4 +34,3 @@ fi
 
 $HOME/.config/vesper/scripts/theme.sh "$new_wallpaper"
 
-
