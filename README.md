@@ -2,8 +2,9 @@
 
 Currently, it didn't have installer script yet :)
 
-if u want to try, just clone the project and move all directories into your .config
-make sure to install all required deps listed in packages file
+if u want to try, just clone the project and move all directories into your `.config` dir
+
+make sure to install all required deps listed in `packages` file
 
 Preview Video:
 
