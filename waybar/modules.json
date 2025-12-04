@@ -49,7 +49,7 @@
 
     "clock": {
         "format-alt": "{:%H:%M}",
-        "format": "{:%A, %B %d, %Y}",
+        "format": "{:%H:%M - %A %d/%m/%Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "year",
@@ -166,6 +166,16 @@
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
         "format-icons": [" ", "", " "]
-    }
+    },
 
+    "custom/updates": {
+      "format": "   {}",
+      "escape": true,
+      "return-type": "json",
+      "exec": "~/.config/vesper/scripts/package-update.sh",
+      "interval": 1800,
+      "signal": 1,
+      "hide-empty-text": true,
+      "on-click": ""
+  }
 }
