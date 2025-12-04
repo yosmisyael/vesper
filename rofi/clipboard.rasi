@@ -28,7 +28,7 @@ configuration {
 
 // Main Window - Clipboard Manager Style
 window {
-    height:                      28em;
+    height:                      27.6em;
     width:                       45em;
     transparency:                "real";
     fullscreen:                  false;
@@ -39,9 +39,9 @@ window {
     border:                      2px solid;
     border-color:                @primary;
     location:                    center;
-    background-color:            @surface;
+    background-color:            @on-primary-fixed-variant;
     anchor:                      center;
-    border-radius:               20px;
+    border-radius:               32px;
     expand:                      false;
 }
 
@@ -58,10 +58,10 @@ mainbox {
 inputbar {
     enabled:                     true;
     spacing:                     0em;
-    padding:                     1.5em 2em;
+    padding:                     1.25em;
     border-radius:               20px 20px 0px 0px;
     children:                    [ "textbox-prompt-colon", "entry" ];
-    background-color:            @surface-container-high;
+    background-color:            transparent;
     border:                      0px 0px 1px 0px solid;
     border-color:                @outline-variant;
 }
@@ -69,28 +69,28 @@ inputbar {
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "󰅌 ";
-    padding:                     0.8em 0.5em;
-    text-color:                  @primary;
-    background-color:            transparent;
+    str:                         "󰅌";
+    border-radius:               1.15em 0em 0em 1.15em;
+    padding:                     0.7em 0.3em 0.6em 1.2em;
+    text-color:                  @primary-fixed-dim;
+    background-color:            @inverse-primary;
     font:                        "SF Pro Display 14";
 }
-
 entry {
     enabled:                     true;
     spacing:                     0em;
-    padding:                     0.8em 1em;
-    background-color:            @surface-container;
-    text-color:                  @on-surface;
+    padding:                     1em;
+    background-color:            @inverse-primary;
+    text-color:                  @primary-fixed-dim;
     cursor:                      text;
     placeholder:                 "Search clipboard history...";
     placeholder-color:           @outline;
-    border-radius:               12px;
+    border-radius:               0em 1.15em 1.15em 0em;
 }
 
 // Clipboard History List
 listview {
-    padding:                     1em 2em 2em 2em;
+    padding:                     1.25em 1em;
     spacing:                     0.5em;
     enabled:                     true;
     columns:                     1;
@@ -103,40 +103,38 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     cursor:                      "default";
-    background-color:            transparent;
+    background-color:            @on-primary-fixed;
     text-color:                  @on-surface;
+    border-radius:               32px;
 }
 
 // Clipboard Entry Elements
 element {
     enabled:                     true;
     spacing:                     0.8em;
-    padding:                     1.2em 1.5em;
-    border-radius:               12px;
+    padding:                     0.8em 1em;
+    border-radius:               20px;
     background-color:            transparent;
     text-color:                  @on-surface;
     cursor:                      pointer;
     orientation:                 horizontal;
-    border:                      1px solid;
+    border:                      2px solid;
     border-color:                transparent;
 }
 
 element.normal.normal {
-    background-color:            @surface-container-low;
-    text-color:                  @on-surface;
-    border-color:                @outline-variant;
+    background-color:            @inverse-primary;
+    text-color:                  @primary-fixed;
 }
 
 element.selected.normal {
-    background-color:            @primary-container;
-    text-color:                  @on-primary-container;
-    border-color:                @primary;
+    background-color:            @primary-fixed-dim;
+    text-color:                  @on-primary-fixed;
 }
 
 element.alternate.normal {
-    background-color:            @surface-container;
-    text-color:                  @on-surface;
-    border-color:                @outline-variant;
+    background-color:            @inverse-primary;
+    text-color:                  @primary-fixed;
 }
 
 element.normal.urgent {
@@ -154,13 +152,11 @@ element.selected.urgent {
 element.normal.active {
     background-color:            @tertiary-container;
     text-color:                  @on-tertiary-container;
-    border-color:                @tertiary;
 }
 
 element.selected.active {
     background-color:            @tertiary;
     text-color:                  @on-tertiary;
-    border-color:                @tertiary;
 }
 
 // Clipboard Entry Text
@@ -176,15 +172,12 @@ element-text {
 
 // Scrollbar for Long Clipboard History
 scrollbar {
-    width:                       6px;
-    border:                      0px;
     handle-color:                @primary;
-    handle-width:                6px;
-    padding:                     0px 4px;
-    background-color:            @surface-container-highest;
-    border-radius:               8px;
-    margin:                      0px 0px 0px 8px;
+    handle-width:                8px;
+    background-color:            @on-primary-fixed-variant;
+    border-radius:               16px;
 }
+
 
 // Message for Empty Clipboard
 message {

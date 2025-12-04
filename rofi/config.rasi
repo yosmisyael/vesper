@@ -33,7 +33,7 @@ configuration {
 
 // Main Window
 window {
-    height:                35em;
+    height:                34em;
     width:                 56em;
     transparency:          "real";
     fullscreen:            false;
@@ -42,7 +42,7 @@ window {
     spacing:               0em;
     padding:               0em;
     border:                2px solid;
-    border-color:          @on-surface;
+    border-color:          @primary;
     location:              center;
     background-color:      @surface;
     anchor:                center;
@@ -76,8 +76,8 @@ entry {
     enabled:               true;
     spacing:               1em;
     padding:               1em;
-    text-color:            @on-surface;
-    background-color:      @surface;
+    text-color:            @primary-fixed;
+    background-color:      @on-primary-fixed;
     cursor:                text;
     placeholder:           "Search applications...";
     placeholder-color:     @outline;
@@ -89,7 +89,7 @@ content {
     spacing:               0em;
     orientation:           horizontal;
     children:              [ "mode-switcher", "listview" ];
-    background-color:      @surface;
+    background-color:      @on-primary-fixed;
     border-radius:         0px 0px 22px 22px;
 }
 
@@ -111,7 +111,6 @@ listview {
     text-color:            @on-surface;
 }
 
-// Mode Switcher (Your Current Style)
 mode-switcher {
     enabled:               true;
     width:                 6.6em;
@@ -136,16 +135,16 @@ button {
 }
 
 button.selected {
-    background-color:      @secondary-container;
-    text-color:            @on-secondary-container;
+    background-color:      @inverse-primary;
+    text-color:            @primary-fixed;
 }
 
 // List Elements
 element {
     enabled:               true;
     spacing:               12px;
-    padding:               16px;
-    border-radius:         16px;
+    padding:               20px;
+    border-radius:         36px;
     background-color:      transparent;
     text-color:            @on-surface;
     cursor:                pointer;
@@ -158,8 +157,8 @@ element.normal.normal {
 }
 
 element.selected.normal {
-    background-color:      @secondary-container;
-    text-color:            @on-secondary-container;
+    background-color:      @inverse-primary;
+    text-color:            @primary-fixed;
 }
 
 element.alternate.normal {
@@ -189,10 +188,10 @@ element-text {
 scrollbar {
     width:                 6px;
     border:                0px;
-    handle-color:          @outline;
+    handle-color:          @primary-fixed;
     handle-width:          6px;
     padding:               0px;
-    background-color:      @surface-variant;
+    background-color:      @inverse-primary;
     border-radius:         12px;
 }
 

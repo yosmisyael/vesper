@@ -29,12 +29,12 @@ configuration {
 
 window {
     text-color: @on-surface;
-    background-color: #00000000;
+    background-color: @on-primary-fixed-variant;
     border: 0px;
     border-color: transparent;
-    border-radius: 0px;
+    border-radius: 24px;
     width: 86px;
-    height: 38.9%;
+    height: 41.3%;
     location: east;
     anchor: east;
     x-offset: -20px;
@@ -69,8 +69,8 @@ listview {
 }
 
 element {
-    background-color: @surface-container;
-    text-color: @on-surface;
+    background-color: @inverse-primary;
+    text-color: @on-primary-fixed;
     orientation: horizontal;
     border-radius: 16px;
     spacing: 0px;
@@ -83,9 +83,14 @@ element {
 }
 
 element normal.normal {
-    background-color: @surface-container;
-    text-color: @on-surface;
+    background-color: @inverse-primary;
+    text-color: @on-primary-fixed;
     border-color: transparent;
+}
+
+element.alternate.normal {
+    text-color: @on-primary-fixed;
+    background-color: @inverse-primary;
 }
 
 element normal.urgent {
@@ -95,14 +100,14 @@ element normal.urgent {
 }
 
 element normal.active {
-    background-color: @primary-container;
-    text-color: @on-primary-container;
+    background-color: @primary-fixed-dim;
+    text-color: @primary;
     border-color: @primary;
 }
 
 element selected.normal {
     background-color: @primary-container;
-    text-color: @on-primary-container;
+    text-color: @primary;
     border-color: @primary;
 }
 
@@ -113,8 +118,8 @@ element selected.urgent {
 }
 
 element selected.active {
-    background-color: @primary;
-    text-color: @on-primary;
+    background-color: @primary-fixed-dim;
+    text-color: @primary;
     border-color: @primary;
 }
 

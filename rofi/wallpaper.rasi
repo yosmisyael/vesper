@@ -1,0 +1,108 @@
+//                                                                
+//                                                                
+//     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
+//    |  $$  /$$//$$__  $$ /$$_____/ /$$__  $$ /$$__  $$ /$$__  $$
+//     \  $$/$$/| $$$$$$$$|  $$$$$$ | $$  \ $$| $$$$$$$$| $$  \__/
+//      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$      
+//       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$      
+//        \_/    \_______/|_______/ | $$____/  \_______/|__/      
+//                                  | $$                          
+//                                  | $$                          
+//                                  |__/
+//
+// rofi config for wallpaper switcher
+// by yosmisyael (2025)
+
+@theme "~/.config/rofi/colors.rasi"
+
+window {
+    width: 60em;
+    height: 31.5em;
+    border-color: @primary;
+    enabled: true;
+    border-radius: 32px;
+    border-color: @primary-fixed;
+}
+
+mainbox {
+    children: [ "inputbar", "content" ];
+    enabled: true;
+    orientation: vertical;
+    background-color: transparent;
+    border-color: @primary-fixed;
+}
+
+inputbar {
+    enabled: true;
+    spacing: 0em;
+    padding: 1.25em;
+    children: [ "entry" ];
+    background-color: @on-primary-fixed-variant;
+    border-radius: 22px 22px 0 0;
+    border-color: @primary-fixed;
+}
+
+entry {
+    border-radius:         2em;
+    enabled:               true;
+    spacing:               1em;
+    padding:               1em;
+    text-color:            @primary-fixed;
+    background-color:      @inverse-primary;    
+    cursor:                text;
+    placeholder:           "Choose wallpaper...";
+    placeholder-color:     @outline;
+    border-color: @primary-fixed;
+}
+
+content {
+    children: [ "listview" ];
+    border-radius: 0 0 22px 22px;
+    background-color: @on-primary-fixed-variant;
+    border-color: @primary-fixed;
+}
+
+listview {
+    columns: 4;
+    lines: 2;
+    layout: vertical;
+    spacing: 1em;
+    padding: 1.25em;
+    background-color: @on-primary-fixed-variant;
+    border-color: @primary-fixed;
+}
+
+element {
+    orientation: vertical;
+    padding: 1em;
+    border-radius: 16px;
+    spacing: 0em;
+    background-color: @inverse-primary;
+}
+
+element.selected.normal {
+    background-color: @primary-fixed-dim;
+}
+
+element-icon {
+    size: 8em;
+    background-color: @inverse-primary;
+    border-radius: 12px;
+}
+
+element-icon.selected.normal {
+    background-color: @primary-fixed-dim;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    margin: 0;
+    font: "SF Pro Display 13";
+    text-color: @primary-fixed;
+    background-color: transparent;
+}
+
+element-text.selected.normal {
+    text-color: @on-primary-fixed-variant;
+}
