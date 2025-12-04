@@ -1,21 +1,5 @@
 #!/bin/bash 
 
-#                                                                
-#                                                                
-#     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
-#    |  $$  /$$//$$__  $$ /$$_____/ /$$__  $$ /$$__  $$ /$$__  $$
-#     \  $$/$$/| $$$$$$$$|  $$$$$$ | $$  \ $$| $$$$$$$$| $$  \__/
-#      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$      
-#       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$      
-#        \_/    \_______/|_______/ | $$____/  \_______/|__/      
-#                                  | $$                          
-#                                  | $$                          
-#                                  |__/
-# 
-# Script to setup wallpaper of sddm astronout theme 
-# by yosmisyael (2024)
-
-
 SDDM_THEME_BACKGROUND_PATH="/usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/Default.png"
 
 NEW_WALLPAPER="$1"

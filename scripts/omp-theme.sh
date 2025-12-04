@@ -1,6 +1,5 @@
-#!/bin/bash
+#!/bin/bash 
 
-#
 #                                                                
 #                                                                
 #     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
@@ -13,32 +12,8 @@
 #                                  | $$                          
 #                                  |__/
 #
+# Script to update oh-my-posh theme based on matugen
 # by yosmisyael (2024)
 
-# Script to manage hyprland logout and system power 
+jq -sa '.[0] * .[1]' ~/.config/oh-my-posh/palette.json ~/.config/oh-my-posh/vesper.omp.json.bak > ~/.config/oh-my-posh/vesper.omp.json
 
-options="󰌾\n\n󰍃\n󰜉\n󰐥"
-
-chosen="$(echo -e "$options" | rofi -dmenu -theme ~/.config/rofi/logout.rasi -p "")"
-
-power_utils="$HOME/.config/vesper/scripts/power.sh"
-
-case $chosen in
-    "󰌾")
-        "$power_utils" lock
-        ;;
-    "")
-        "$power_utils" suspend
-        ;;
-    "󰍃")
-        "$power_utils" exit
-        ;;
-    "󰜉")
-        "$power_utils" reboot
-        ;;
-    "󰐥")
-        "$power_utils" shutdown
-        ;;
-    *)
-        ;;
-esac

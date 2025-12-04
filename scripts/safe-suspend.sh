@@ -15,30 +15,10 @@
 #
 # by yosmisyael (2024)
 
-# Script to manage hyprland logout and system power 
+# Script to gracefully suspend the system
 
-options="󰌾\n\n󰍃\n󰜉\n󰐥"
+loginctl lock-session
 
-chosen="$(echo -e "$options" | rofi -dmenu -theme ~/.config/rofi/logout.rasi -p "")"
+sleep 0.5
 
-power_utils="$HOME/.config/vesper/scripts/power.sh"
-
-case $chosen in
-    "󰌾")
-        "$power_utils" lock
-        ;;
-    "")
-        "$power_utils" suspend
-        ;;
-    "󰍃")
-        "$power_utils" exit
-        ;;
-    "󰜉")
-        "$power_utils" reboot
-        ;;
-    "󰐥")
-        "$power_utils" shutdown
-        ;;
-    *)
-        ;;
-esac
+systemctl suspend 

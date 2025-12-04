@@ -78,14 +78,23 @@ output_blur="$cache_dir/wall.blur"
 output_thumb="$cache_dir/wall.thmb"
 output_profile="$cache_dir/profile.jpg"
 
+# generate thumb pictures
 generate_blur "$wallpaper_path" "$output_blur"
 generate_thumbnail "$wallpaper_path" "$output_thumb"
 generate_profile "$wallpaper_path" "$output_profile"
 
+# wallpaper transition
 swww img "$wallpaper_path" --transition-type center --transition-step 15 --transition-fps 60
 
-matugen image "$wallpaper_path"
+# generate palette 
+matugen image "$wallpaper_path" -t scheme-fidelity -m "dark"
 
-~/.config/vesper/scripts/omp-theme.sh
+# reload swaync
+swaync-client -rs
 
+# setup oh my posh theme (optional if the system use oh-my-posh)
+# ~/.config/vesper/scripts/omp-theme.sh
+
+# setup sddm wallpaper 
 $HOME/.config/vesper/scripts/setup-sddm-wall.sh "$wallpaper_path"
+
