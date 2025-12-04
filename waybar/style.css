@@ -27,7 +27,7 @@
 }
 
 window#waybar {
-    background: @surface;
+    background: @surface_container_highest;
     border: 1px solid @outline_variant;
     border-radius: 28px;
 }
@@ -36,7 +36,7 @@ window#waybar {
 .modules-center,
 .modules-right {
     border-radius: 24px;
-    padding: 6px;
+    padding: 8px;
 }
 
 #workspaces,
@@ -53,12 +53,17 @@ window#waybar {
 #cpu,
 #memory,
 #temperature,
+#custom-updates,
 #custom-menu {
     background: transparent;
     color: @on_surface;
     border-radius: 20px;
     padding: 4px 12px;
     min-width: 24px;
+}
+
+#custom-state {
+  min-width: 18px;
 }
 
 #custom-menu {
@@ -208,4 +213,3 @@ tooltip {
 tooltip label {
     color: @on_surface;
 }
-
