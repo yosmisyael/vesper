@@ -16,11 +16,11 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 46,
+    "height": 50,
     "spacing": 8,
     "margin-top": 12,
-    "margin-left": 18,
-    "margin-right": 18,
+    "margin-left": 15,
+    "margin-right": 15,
 
     "include": ["~/.config/waybar/modules.json"],
     
@@ -34,6 +34,7 @@
     ],
     
     "modules-right": [
+        "custom/updates",
         "network",
         "bluetooth",
         "pulseaudio",
@@ -43,4 +44,3 @@
         "custom/power"
     ]
 }
-
