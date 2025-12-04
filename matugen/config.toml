@@ -34,12 +34,12 @@ input_path = '~/.config/matugen/templates/kitty-colors.conf'
 output_path = '~/.config/kitty/colors.conf'
 
 [templates.gtk3]
-input_path = '~/.config/matugen/templates/gtk3-colors.conf'
+input_path = '~/.config/matugen/templates/gtk-colors.conf'
 output_path = '~/.config/gtk-3.0/colors.css'
 post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
 
 [templates.gtk4]
-input_path = '~/.config/matugen/templates/gtk4-colors.conf'
+input_path = '~/.config/matugen/templates/gtk-colors.conf'
 output_path = '~/.config/gtk-4.0/colors.css'
 
 [templates.rofi]
@@ -58,3 +58,28 @@ output_path = '~/.config/waypaper/config.ini'
 [templates.ohmyposh]
 input_path = '~/.config/matugen/templates/ohmyposh'
 output_path = '~/.config/oh-my-posh/palette.json'
+
+[templates.starship]
+input_path = '~/.config/matugen/templates/starship.toml'
+output_path = '~/.config/starship.toml'
+
+[templates.qt5ct]
+input_path='~/.config/matugen/templates/qtct-colors.conf'
+output_path='~/.config/qt5ct/qt5ct.conf'
+
+[templates.qt6ct]
+input_path='~/.config/matugen/templates/qtct-colors.conf'
+output_path='~/.config/qt6ct/qt6ct.conf'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors.ini'
+output_path = '~/.config/cava/themes/vesper'
+post_hook = "pkill -USR1 cava"
+
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+
+[templates.vesktop]
+input_path = '~/.config/matugen/templates/midnight-discord.css'
+output_path = '~/.config/vesktop/themes/midnight-discord.css'
