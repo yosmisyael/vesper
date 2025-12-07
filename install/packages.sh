@@ -43,6 +43,7 @@ PKGS_PACMAN=(
     rofi
     nwg-look
     zsh
+    starship
     qt6-wayland
     qt5-wayland
     udiskie
