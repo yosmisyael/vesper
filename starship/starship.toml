@@ -40,26 +40,26 @@ $character\
 palette = 'matugen'
 
 [palettes.matugen]
-color_ok = '#d3c5aa'
+color_ok = '#c1c7d1'
 color_danger = '#ffb4ab'
-color_caution = '#2c2412'
-color_os = '#c5c5d7'
-color_username = '#222431'
-color_directory = '#c7c5cd'
-color_git = '#d3c5aa'
-color_git_added = '#d3c5aa'
+color_caution = '#484e57'
+color_os = '#d7c3b2'
+color_username = '#d7c3b2'
+color_directory = '#d0c4bc'
+color_git = '#c1c7d1'
+color_git_added = '#c1c7d1'
 color_git_deleted = '#ffb4ab'
-color_env = '#e1e1f3'
-color_kubernetes = '#4b4b51'
-color_docker = '#c5c5d7'
-color_shell = '#c7c5cc'
-color_container = '#353436'
-color_other = '#919096'
-color_time = '#e5e1e3'
-color_duration = '#c7c5cc'
-color_vimcmd_ok = '#d3c5aa'
-color_vimcmd_replace = '#c7c5cd'
-color_vimcmd_visual = '#2c2412'
+color_env = '#f4dfcd'
+color_kubernetes = '#4d453f'
+color_docker = '#d7c3b2'
+color_shell = '#d0c4bb'
+color_container = '#373433'
+color_other = '#998f87'
+color_time = '#e7e1df'
+color_duration = '#d0c4bb'
+color_vimcmd_ok = '#c1c7d1'
+color_vimcmd_replace = '#d0c4bc'
+color_vimcmd_visual = '#484e57'
 
 [os]
 disabled = false
@@ -81,6 +81,7 @@ Alpine = ""
 Amazon = ""
 Android = ""
 Arch = "󰣇"
+CachyOS = "󰣇"
 Artix = "󰣇"
 EndeavourOS = ""
 CentOS = ""
