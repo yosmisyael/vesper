@@ -34,7 +34,7 @@ window {
     border-color: transparent;
     border-radius: 24px;
     width: 86px;
-    height: 41.3%;
+    height: 41.9%;
     location: east;
     anchor: east;
     x-offset: -20px;
