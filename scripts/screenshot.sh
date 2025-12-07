@@ -21,7 +21,7 @@ mesg="DIR: ~/Pictures"
 
 # screenshot config
 source ~/.config/ml4w/settings/screenshot-filename.sh 2>/dev/null || NAME="screenshot_$(date +%d%m%Y_%H%M%S).jpg"
-source ~/.config/ml4w/settings/screenshot-folder.sh 2>/dev/null || screenshot_folder="$HOME/Pictures"
+source ~/.config/ml4w/settings/screenshot-folder.sh 2>/dev/null || screenshot_folder="$HOME/Pictures/Screenshots/"
 export GRIMBLAST_EDITOR="$(echo 'pinta')"
 
 # screenshot launcher
