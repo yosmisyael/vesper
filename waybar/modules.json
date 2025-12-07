@@ -71,10 +71,10 @@
         "format-linked": "󰈀  {ifname}",
         "format-disconnected": "󰤮  Disconnected",
         "tooltip-format": "{ifname} via {gwaddr}",
-        "tooltip-format-wifi": "󰤨 {essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-wifi": "󰤨    {essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr}",
         "tooltip-format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}",
         "max-length": 50,
-        "format-wifi": "{icon}  {essid}",
+        "format-wifi": "{icon}    {essid}",
         "format-icons": {
           "wifi": [
             "󰤯",
