@@ -1,0 +1,78 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/profile.png",
+    "padding": {
+      "left": 2,
+      "top": 2
+    }
+  },
+  "display": {
+    "separator": " "
+  },
+  "modules": [
+    {
+      "type": "title",
+      "keyWidth": 10,
+      "format": "{user-name}@{host-name}"
+    },
+    "break",
+    {
+      "type": "os",
+      "key": "  distro  󰅂 {#keys}",
+      "keyColor": "31" 
+    },
+    {
+      "type": "kernel",
+      "key": "  kernel  󰅂 {#keys}",
+      "keyColor": "32"
+    },
+    {
+      "type": "packages",
+      "format": "{} (pacman)",
+      "key": "󰮯  pkgs    󰅂 ",
+      "keyColor": "33"  
+    },
+    {
+      "type": "cpu",
+      "key": "󰻠  cpu     󰅂 {#keys}",
+      "keyColor": "35"
+    },
+    {
+      "type": "memory",
+      "key": "  memory  󰅂 {#keys}",
+      "keyColor": "32"
+    },
+    {
+      "type": "disk",
+      "key": "  disk    󰅂 {#keys}",
+      "keyColor": "31"
+    },
+    {
+      "type": "shell",
+      "key": "  shell   󰅂 {#keys}",
+      "keyColor": "35" 
+    },
+    {
+      "type": "terminal",
+      "key": "  term    󰅂 {#keys}",
+      "keyColor": "36" 
+    },
+    {
+      "type": "wm",
+      "key": "󰕮  wm      󰅂 {#keys}",
+      "keyColor": "31" 
+    },
+    {
+      "type": "uptime",
+      "key": "  uptime  󰅂 {#keys}",
+      "keyColor": "33" 
+    },
+    {
+      "type": "media",
+      "key": "󰝚  media   󰅂 {#keys}",
+      "keyColor": "36" 
+    },
+    "break"
+  ]
+}
