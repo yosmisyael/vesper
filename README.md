@@ -16,6 +16,4 @@
 clone this repo, then run the install scripts inside install dir (no backup will created, fresh arch hyprland recommended) 
 
 ## Previews:
-![Image Preview](https://raw.githubusercontent.com/yosmisyael/vesper/refs/heads/main/update-20251216.jpg "Preview 1")
-
-https://github.com/user-attachments/assets/301fe2c4-65ff-4f8c-9688-0c2495baeee2
+https://github.com/user-attachments/assets/977d0ae9-1308-4775-8a66-9d5a56c68779
