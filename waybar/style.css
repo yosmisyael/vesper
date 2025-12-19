@@ -20,8 +20,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "Plus Jakarta Sans", "JetBrains Mono Nerd Propo", "Nerd Font", sans-serif;
-    font-weight: 600;
+    font-family: "SF Pro Display", "JetBrains Mono Nerd Propo", "Nerd Font", sans-serif;
+    font-weight: 700;
     font-size: 13px;
     min-height: 0;
 }
@@ -29,6 +29,22 @@
 window#waybar {
     background: @surface_container_highest;
     border-radius: 28px;
+}
+
+tooltip * {
+    background-color: @surface_container_highest;
+    color: @primary;
+    text-shadow: none;
+    border-radius: 12px;
+}
+tooltip box {
+    background-color: @surface_container_highest;
+}
+
+tooltip label {
+    background-color: transparent;
+    color: @primary;
+    padding: 5px;
 }
 
 .modules-left,
@@ -44,9 +60,7 @@ window#waybar {
 #network,
 #bluetooth,
 #pulseaudio,
-#battery,
 #tray,
-#power-profiles-daemon,
 #custom-power,
 #custom-state,
 #cpu,
@@ -55,30 +69,39 @@ window#waybar {
 #custom-updates,
 #custom-menu {
     background: transparent;
-    color: @on_surface;
+    color: @primary;
     border-radius: 20px;
     padding: 4px 12px;
     min-width: 24px;
+    transition: all 0.3s ease-in-out;
 }
 
 #custom-state {
   min-width: 18px;
+  font-size: 14px;
 }
 
 #custom-menu {
-    background: @tertiary_container;
-    color: @on_tertiary_container;
+    background: @tertiary;
+    color: @on_tertiary;
     min-width: 32px;
+    transition: all 0.3s ease-in-out;
     font-size: 15px;
 }
 
-#network:hover,
+#custom-menu:hover {
+    background-color: alpha(@tertiary, 0.85);
+    color: alpha(@on_tertiary, 0.85);
+    transition: all 0.3s ease-in-out;
+}
+
 #bluetooth:hover,
 #pulseaudio:hover,
-#battery:hover,
+#custom-updates:hover,
 #custom-power:hover {
     background: @secondary_container;
     color: @on_secondary_container;
+    transition: all 0.3s ease-in-out;
 }
 
 #workspaces {
@@ -88,9 +111,9 @@ window#waybar {
 
 #workspaces button {
     padding: 0 12px;
-    margin: 0 2px;
+    margin: 0 3px;
     border-radius: 18px;
-    color: @on_surface_variant;
+    color: @primary;
     background: transparent;
     transition: all 0.3s ease-in-out;
     background: inherit;
@@ -98,14 +121,14 @@ window#waybar {
 }
 
 #workspaces button:hover {
-    background: @secondary_container;
-    color: @on_secondary_container;
+    background: @primary_container;
+    color: @on_primary_container;
     transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-    background: @primary_container;
-    color: @on_primary_container;
+    background: @primary;
+    color: @on_primary;
     font-weight: 600;
     min-width: 32px;
     transition: all 0.3s ease-in-out;
@@ -118,29 +141,38 @@ window#waybar {
 }
 
 #window {
+    background-color: @surface_variant;
     color: @on_surface_variant;
     font-weight: 400;
 }
 
 #clock {
-    background: @secondary_container;
-    color: @on_secondary_container;
+    background: @primary;
+    color: @on_primary;
     padding: 4px 12px;
     border-radius: 20px;
     min-width: 32px;
+    transition: all 0.3s ease-in-out;
 }
 
 #clock:hover {
-    background: @secondary;
-    color: @on_secondary;
+    background: alpha(@primary, 0.85);
+    color: alpha(@on_primary, 0.85);
+    transition: all 0.3s ease-in-out;
+}
+
+#network {
+    background: @primary_container;
+    color: @on_primary_container;
+}
+
+#network:hover {
+    background: @primary;
+    color: @on_primary;
 }
 
 #network.disconnected {
     color: @error;
-}
-
-#network.wifi {
-    color: @primary;
 }
 
 #network.ethernet {
@@ -164,21 +196,30 @@ window#waybar {
     color: @primary;
 }
 
-#battery.charging,
-#battery.plugged {
-    color: @tertiary;
+/* Group Power */
+box#power {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
-#battery.warning {
-    color: @error_container;
+#power-profiles-daemon {
+  margin-right: 16px;
+  font-size: 14px;
 }
 
-#battery.critical {
-    color: @error;
+box#power:hover {
+    background-color: @on_secondary_container;
+    color: @secondary_container;
+    transition: all 0.3s ease-in-out;
+
 }
 
 #tray {
-    padding: 4px;
+    background-color: @surface_container;
+    padding: 4px 12px;
 }
 
 #tray menu {
@@ -189,17 +230,19 @@ window#waybar {
 }
 
 #custom-power {
-    background: @error_container;
-    color: @on_error_container;
+    background: @secondary_fixed_dim;
+    color: @on_secondary_fixed;
     font-size: 16px;
     padding: 4px 12px;
     border-radius: 20px;
+    transition: all 0.3s ease-in-out;
     min-width: 32px;
 }
 
 #custom-power:hover {
-    background: @error;
-    color: @on_error;
+    background: alpha(@secondary_fixed_dim, 0.85);
+    color: alpha(@on_secondary_fixed, 0.85);
+    transition: all 0.3s ease-in-out;
 }
 
 tooltip {
@@ -213,4 +256,6 @@ tooltip {
 
 tooltip label {
     color: @on_surface;
+
+  border-radius: 24px;
 }
