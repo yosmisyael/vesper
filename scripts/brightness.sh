@@ -28,6 +28,8 @@ else
     fi
 fi
 
+current=$(brightnessctl -m | cut -d, -f4 | tr -d %)
+
 if [ "$current" -le 20 ]; then
     icon="display-brightness-low-symbolic"
 elif [ "$current" -le 70 ]; then
