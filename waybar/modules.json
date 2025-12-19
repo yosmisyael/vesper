@@ -14,20 +14,19 @@
 // by yosmisyael (2024)
 
 {
-   "custom/menu": {
-      "format": "󰮯",
-      "tooltip": false,
-      "on-click": "rofi -show drun"
-    },
-
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{name}",
-        "persistent-workspaces": {
-            "*": 5
-        }
-    },
+  "custom/menu": {
+    "format": "󰮯",
+    "tooltip": false,
+    "on-click": "rofi -show drun"
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}",
+    "persistent-workspaces": {
+      "*": 3
+    }
+  },
 
     "hyprland/window": {
         "format": "{}",
@@ -37,10 +36,10 @@
 
     "power-profiles-daemon": {
       "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip-format": "power profile: {profile}\ndriver: {driver}",
       "tooltip": true,
       "format-icons": {
-        "default": "󱐋",
+        "default": "󰌪",
         "performance": "󱐋",
         "balanced": "󰾅",
         "power-saver": "󰌪"
@@ -49,7 +48,7 @@
 
     "clock": {
         "format-alt": "{:%H:%M}",
-        "format": "{:%H:%M - %A %d/%m/%Y}",
+        "format": "{:%H:%M - %d/%m/%Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "year",
@@ -57,11 +56,11 @@
             "weeks-pos": "right",
             "on-scroll": 1,
             "format": {
-                "months": "<span color='#a6e3a1'><b>{}</b></span>",
-                "days": "<span color='#cdd6f4'><b>{}</b></span>",
-                "weeks": "<span color='#94e2d5'><b>W{}</b></span>",
-                "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-                "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+                "months": "<span><b>{}</b></span>",
+                "days": "<span><b>{}</b></span>",
+                "weeks": "<span><b>W{}</b></span>",
+                "weekdays": "<span><b>{}</b></span>",
+                "today": "<span><b><u>{}</u></b></span>"
             }
         }
     },
@@ -85,7 +84,7 @@
           "ethernet": "󰈀",
           "disconnected": "󰤮"
         },
-        "on-click": "kitty nmtui"
+        "on-click": "kitty --class floating_nmtui -e nmtui"
     },
 
     "bluetooth": {
@@ -126,6 +125,7 @@
         "format-charging": "󰂄 {capacity}%",
         "format-plugged": "󰂄 {capacity}%",
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "on-click": "",
         "tooltip-format": "{timeTo}, {power}W"
     },
 
@@ -144,6 +144,14 @@
         "tooltip": false
     },
 
+    "group/power": {
+      "orientation": "horizontal",
+      "modules": [
+        "power-profiles-daemon",
+        "battery"
+      ]
+    },
+
     "group/system": {
       "orientation": "inherit",
       "drawer": {
@@ -155,7 +163,7 @@
     },
 
     "cpu": {
-        "format": "  {usage}%"
+        "format": "   {usage}%"
     },
 
     "memory": {
