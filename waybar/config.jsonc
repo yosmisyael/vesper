@@ -25,7 +25,8 @@
     
     "modules-left": [
         "custom/menu",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "hyprland/window"
     ],
     
     "modules-center": [
@@ -33,13 +34,13 @@
     ],
     
     "modules-right": [
-        "custom/updates",
-        "network",
-        "bluetooth",
-        "pulseaudio",
         "group/system",
-        "power-profiles-daemon",
-        "battery",
+        "custom/updates",
+        // "bluetooth",
+        "pulseaudio",
+        "tray",
+        "network",
+        "group/power",
         "custom/power"
     ]
 }
