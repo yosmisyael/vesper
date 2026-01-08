@@ -17,6 +17,8 @@ clone this repo, then run the install scripts inside install dir (no backup will
 ## Previews:
 https://github.com/user-attachments/assets/977d0ae9-1308-4775-8a66-9d5a56c68779
 
+![Catppuccin theme wallpaper](https://raw.githubusercontent.com/yosmisyael/vesper/refs/heads/main/screenshot_08012026_223237.jpg "Catppuccin Themed Wallpaper")
+
 ## Softwares
 Some bloatware I use (it's not installed by default):
 - [Okular](https://archlinux.org/packages/extra/x86_64/okular/)
