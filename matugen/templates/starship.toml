@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = true
+add_newline = false
 
 command_timeout = 2000
 
@@ -44,7 +44,7 @@ color_ok = '{{colors.tertiary.default.hex}}'
 color_danger = '{{colors.error.default.hex}}'
 color_caution = '{{colors.tertiary_container.default.hex}}'
 color_os = '{{colors.primary.default.hex}}'
-color_username = '{{colors.primary_container.default.hex}}'
+color_username = '{{colors.primary.default.hex}}'
 color_directory = '{{colors.secondary.default.hex}}'
 color_git = '{{colors.tertiary.default.hex}}'
 color_git_added = '{{colors.tertiary.default.hex}}'
@@ -81,6 +81,7 @@ Alpine = ""
 Amazon = ""
 Android = ""
 Arch = "󰣇"
+CachyOS = "󰮮 "
 Artix = "󰣇"
 EndeavourOS = ""
 CentOS = ""
