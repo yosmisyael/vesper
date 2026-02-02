@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #
 #                                                                
 #                                                                
@@ -14,31 +13,19 @@
 #                                  |__/
 #
 # by yosmisyael (2024)
+# Script to perform web search 
+#
 
-# Script to manage hyprland logout and system power 
+THEME="$HOME/.config/rofi/web-search.rasi"
+BROWSER="$HOME/.config/vesper/scripts/browser.sh"
+QUERY=$(rofi -dmenu -theme "$THEME" -p "")
 
-options="󰌾\n󰏤\n󰍃\n󰜉\n󰐥"
+if [ -z "$QUERY" ]; then
+    exit 0
+fi 
 
-chosen="$(echo -e "$options" | rofi -dmenu -theme ~/.config/rofi/logout.rasi -p "")"
-
-power_utils="$HOME/.config/vesper/scripts/power.sh"
-
-case $chosen in
-    "󰌾")
-        "$power_utils" lock
-        ;;
-    "󰏤")
-        "$power_utils" suspend
-        ;;
-    "󰍃")
-        "$power_utils" exit
-        ;;
-    "󰜉")
-        "$power_utils" reboot
-        ;;
-    "󰐥")
-        "$power_utils" shutdown
-        ;;
-    *)
-        ;;
-esac
+if [[ "$QUERY" =~ ^(http|https|www\.) ]] || [[ "$QUERY" =~ \.(com|net|org|io|edu|id)$ ]]; then
+     "$BROWSER" "$QUERY"
+else
+    "$BROWSER" "https://www.google.com/search?q=${QUERY}"
+fi

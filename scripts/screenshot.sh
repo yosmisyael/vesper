@@ -22,7 +22,7 @@ mesg="DIR: ~/Pictures"
 # screenshot config
 source ~/.config/ml4w/settings/screenshot-filename.sh 2>/dev/null || NAME="screenshot_$(date +%d%m%Y_%H%M%S).jpg"
 source ~/.config/ml4w/settings/screenshot-folder.sh 2>/dev/null || screenshot_folder="$HOME/Pictures/Screenshots/"
-export GRIMBLAST_EDITOR="$(echo 'pinta')"
+export GRIMBLAST_EDITOR="$(echo 'swappy')"
 
 # screenshot launcher
 rofi_cmd() {
@@ -86,7 +86,7 @@ option_timer_60="1 minute"
 action_copy="Copy to Clipboard"
 action_save="Save to File"
 action_copy_save="Copy & Save"
-action_edit="Edit in Pinta"
+action_edit="Edit in Swappy"
 
 # main menu
 main_menu() {
@@ -153,23 +153,31 @@ take_screenshot() {
     case "$action_type" in
         "copy")
             grimblast --notify copy "$capture_type"
-            notify-send -u low "Screenshot" "📋 Copied to clipboard" -i edit-copy
+            notify-send -u low "Screenshot" "Copied to clipboard" -i edit-copy
             ;;
         "save")
             grimblast --notify save "$capture_type" "$NAME"
             move_to_folder
-            notify-send -u low "Screenshot" "💾 Saved to $screenshot_folder/$NAME" -i document-save
+            notify-send -u low "Screenshot" "Saved to $screenshot_folder/$NAME" -i document-save
             ;;
         "copysave")
             grimblast --notify copysave "$capture_type" "$NAME"
             move_to_folder
-            notify-send -u low "Screenshot" "📋💾 Copied and saved to $screenshot_folder/$NAME" -i camera-photo
+            notify-send -u low "Screenshot" "Copied and saved to $screenshot_folder/$NAME" -i camera-photo
             ;;
         "edit")
-            grimblast --notify save "$capture_type" "$NAME"
-            move_to_folder
-            "$GRIMBLAST_EDITOR" "$screenshot_folder/$NAME" &
-            notify-send -u low "Screenshot" "🎨 Opening in editor" -i applications-graphics
+            final_path="$screenshot_folder/$NAME"
+            grimblast save "$capture_type" - | { 
+                notify-send -u low "Screenshot" "Opening in Swappy" -i applications-graphics
+                swappy -f - -o "$final_path"
+            } &
+            
+            {
+                wait
+                if [[ -f "$final_path" ]]; then
+                     notify-send -u low "Screenshot" "Saved to $final_path" -i document-save
+                fi
+            } &
             ;;
     esac
 }

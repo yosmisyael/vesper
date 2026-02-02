@@ -87,13 +87,11 @@ generate_profile "$wallpaper_path" "$output_profile"
 swww img "$wallpaper_path" --transition-type center --transition-step 15 --transition-fps 60
 
 # generate palette 
+# matugen image "$wallpaper_path" -t scheme-content -r nearest -m "dark"
 matugen image "$wallpaper_path" -t scheme-fidelity -m "dark"
 
 # reload swaync
 swaync-client -rs
-
-# setup oh my posh theme (optional if the system use oh-my-posh)
-# ~/.config/vesper/scripts/omp-theme.sh
 
 # setup sddm wallpaper 
 $HOME/.config/vesper/scripts/setup-sddm-wall.sh "$wallpaper_path"

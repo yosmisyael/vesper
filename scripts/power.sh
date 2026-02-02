@@ -55,20 +55,23 @@ case "$1" in
         pidof hyprlock || hyprlock
         ;;
     exit)
-        terminate_clients
-        sleep 0.5
-        hyprctl dispatch exit
+        terminate_clients && uwsm stop
         ;;
     suspend)
         loginctl lock-session 
         sleep 1
         systemctl suspend
         ;;
+    hibernate)
+        loginctl lock-session
+        sleep 1
+        systemctl hibernate
+        ;;
     reboot)
-        systemctl reboot
+        terminate_clients && systemctl reboot
         ;;
     shutdown)
-        systemctl poweroff
+        terminate_clients && shutdown -P 0
         ;;
     *)
         echo "Invalid command: $1"
