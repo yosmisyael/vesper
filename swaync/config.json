@@ -46,7 +46,6 @@
     }
   },
   "widgets": [
-    "label",
     "mpris",
     "buttons-grid",
     "backlight",
@@ -68,8 +67,9 @@
       "text": "Do not disturb"
     },
     "mpris": {
-      "image-size": 96,
-      "image-radius": 7
+      "image-size": 72,
+      "image-radius": 7,
+      "loop-carousel": true
     },
     "volume": {
       "label": "󰕾",
