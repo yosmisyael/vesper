@@ -1,0 +1,88 @@
+//                                                                
+//                                                                
+//     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
+//    |  $$  /$$//$$__  $$ /$$_____/ /$$__  $$ /$$__  $$ /$$__  $$
+//     \  $$/$$/| $$$$$$$$|  $$$$$$ | $$  \ $$| $$$$$$$$| $$  \__/
+//      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$      
+//       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$      
+//        \_/    \_______/|_______/ | $$____/  \_______/|__/      
+//                                  | $$                          
+//                                  | $$                          
+//                                  |__/
+//
+// rofi config for web search 
+// by yosmisyael (2024)
+
+configuration {
+    font:                  "SF Pro Display 13";
+    show-icons:            false;
+    hover-select:          false;
+    scroll-method:         1;
+    me-select-entry:       "";
+    me-accept-entry:       "MousePrimary";
+}
+
+@theme "~/.config/rofi/colors.rasi"
+
+window {
+    height:                      5.3em;
+    width:                       30em;
+    transparency:                "real";
+    fullscreen:                  false;
+    enabled:                     true;
+    cursor:                      "default";
+    spacing:                     0em;
+    padding:                     0em;
+    location:                    north;
+    anchor:                      north;
+    y-offset:                    10.6em;
+    background-color:            transparent;
+    expand:                      false;
+}
+
+mainbox {
+    enabled:                     true;
+    orientation:                 vertical;
+    expand:                      false;
+    children:                    [ "inputbar" ];
+    background-color:            transparent;
+    transparency:                "real";
+
+}
+
+// Input Bar for Search/Filter
+inputbar {
+    enabled:                     true;
+    spacing:                     0;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+    orientation:                 horizontal;
+    border-radius:               32px; 
+    border:                      1px;
+    border-color:                rgba(255, 255, 255, 0.2);
+    background-color:            transparent;
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "";
+    border-radius:               32px 0 0 32px;
+    padding:                     0 24px;
+    vertical-align:              0.5;
+    background-color:            rgba(0, 0, 0, 0.2);
+    text-color:                  @primary;
+    font:                        "JetBrains Nerd Font Propo 15";
+}
+
+entry {
+    enabled:                     true;
+    padding:                     18px 18px 18px 0px;
+    background-color:            rgba(0, 0, 0, 0.2);
+    text-color:                  @primary;
+    cursor:                      text;
+    font:                        "SF Pro Display 14";
+    placeholder:                 "Type to search...";
+    placeholder-color:           @outline;
+    border-radius:               0 32px 32px 0;
+}
+

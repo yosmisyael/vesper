@@ -15,94 +15,112 @@
 
 @theme "~/.config/rofi/colors.rasi"
 
+configuration {
+    kb-move-char-back:      "Control+b";
+    kb-move-char-forward:   "Control+f";
+    kb-row-left:            "Left";
+    kb-row-right:           "Right";
+    kb-row-up:              "Up";
+    kb-row-down:            "Down";
+}
+
 window {
-    width: 60em;
-    height: 31.5em;
-    border-color: @primary;
-    enabled: true;
-    border-radius: 32px;
-    border-color: @primary-fixed;
+    width:                  33em;
+    height:                 25.2em;
+    enabled:                true;
+    border-radius:          32px;
+    background-color:       transparent;
 }
 
 mainbox {
-    children: [ "inputbar", "content" ];
-    enabled: true;
-    orientation: vertical;
-    background-color: transparent;
-    border-color: @primary-fixed;
+    children:               [ "inputbar", "listview" ];
+    enabled:                true;
+    orientation:            vertical;
+    background-color:       transparent;
 }
 
 inputbar {
-    enabled: true;
-    spacing: 0em;
-    padding: 1.25em;
-    children: [ "entry" ];
-    background-color: @on-primary-fixed-variant;
-    border-radius: 22px 22px 0 0;
-    border-color: @primary-fixed;
+    enabled:                true;
+    spacing:                0;
+    padding:                0 0 20px 0;
+    children:               [ "textbox-prompt-colon", "entry" ];
+    background-color:       transparent;
+}
+
+textbox-prompt-colon {
+    enabled:                true;
+    expand:                 false;
+    str:                    "";
+    vertical-align:         0.5;
+    border-radius:          32px 0 0 32px;
+    padding:                0px 24px;
+    background-color:       rgba(0, 0, 0, 0.2);
+    text-color:             @primary;
+    font:                   "JetBrains Mono Nerd Propo 16";
+    border:                 1px 0 1px 1px;
+    border-color:           rgba(255, 255, 255, 0.2);
 }
 
 entry {
-    border-radius:         2em;
-    enabled:               true;
-    spacing:               1em;
-    padding:               1em;
-    text-color:            @primary-fixed;
-    background-color:      @inverse-primary;    
-    cursor:                text;
-    placeholder:           "Choose wallpaper...";
-    placeholder-color:     @outline;
-    border-color: @primary-fixed;
-}
-
-content {
-    children: [ "listview" ];
-    border-radius: 0 0 22px 22px;
-    background-color: @on-primary-fixed-variant;
-    border-color: @primary-fixed;
+    border-radius:          0 32px 32px 0;
+    enabled:                true;
+    font:                   "SF Pro Display 14";
+    text-color:             @on-surface;
+    background-color:       rgba(0, 0, 0, 0.2);
+    cursor:                 text;
+    padding:                18px 18px 18px 0px;
+    placeholder:            "Choose wallpaper...";
+    placeholder-color:      @outline;
+    border:                 1px 1px 1px 0;
+    border-color:           rgba(255, 255, 255, 0.2);
 }
 
 listview {
-    columns: 4;
-    lines: 2;
-    layout: vertical;
-    spacing: 1em;
-    padding: 1.25em;
-    background-color: @on-primary-fixed-variant;
-    border-color: @primary-fixed;
+    columns:                3;
+    lines:                  2;
+    layout:                 vertical;
+    flow:                   horizontal;
+    spacing:                0;
+    padding:                18px;
+    background-color:       rgba(0, 0, 0, 0.102);
+    border-radius:          32px;
+    border:                 1px;
+    border-color:           rgba(255, 255, 255, 0.2);
 }
 
 element {
-    orientation: vertical;
-    padding: 1em;
-    border-radius: 16px;
-    spacing: 0em;
-    background-color: @inverse-primary;
+    orientation:            vertical;
+    padding:                0 0 16px 0;
+    border-radius:          24px;
+}
+
+element.normal {
+    background-color:       transparent;
 }
 
 element.selected.normal {
-    background-color: @primary-fixed-dim;
+    background-color:       @primary;
 }
 
 element-icon {
     size: 8em;
-    background-color: @inverse-primary;
-    border-radius: 12px;
+    border-radius:          12px;
+    background-color:       transparent;
 }
 
 element-icon.selected.normal {
-    background-color: @primary-fixed-dim;
+    background-color:       transparent;
 }
 
 element-text {
-    horizontal-align: 0.5;
-    vertical-align: 0.5;
-    margin: 0;
-    font: "SF Pro Display 13";
-    text-color: @primary-fixed;
-    background-color: transparent;
+    horizontal-align:       0.5;
+    vertical-align:         0.5;
+    margin:                 0;
+    font:                   "SF Pro Display 13";
+    text-color:             @on-surface;
+    background-color:       transparent;
 }
 
 element-text.selected.normal {
-    text-color: @on-primary-fixed-variant;
+    text-color:             @on-primary;
 }

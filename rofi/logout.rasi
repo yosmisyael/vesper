@@ -29,16 +29,16 @@ configuration {
 
 window {
     text-color: @on-surface;
-    background-color: @on-primary-fixed-variant;
-    border: 0px;
-    border-color: transparent;
-    border-radius: 24px;
-    width: 86px;
-    height: 41.9%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    width: 78px;
+    height: 34.7%;
     location: east;
     anchor: east;
-    x-offset: -20px;
-    y-offset: 0px;
+    x-offset: -12px;
+    y-offset: 0;
 }
 
 mainbox {
@@ -61,20 +61,19 @@ listview {
     reverse: false;
     fixed-height: false;
     fixed-columns: false;
-    spacing: 16px;
+    spacing: 8px;
     padding: 8px;
     border: 0px;
     border-radius: 0px;
-    border-color: transparent;
 }
 
 element {
-    background-color: @inverse-primary;
+    background-color: rgba(0, 0, 0, 0.01);
     text-color: @on-primary-fixed;
     orientation: horizontal;
     border-radius: 16px;
     spacing: 0px;
-    padding: 16px;
+    padding: 12px;
     border: 2px solid;
     border-color: transparent;
     cursor: pointer;
@@ -83,14 +82,14 @@ element {
 }
 
 element normal.normal {
-    background-color: @inverse-primary;
-    text-color: @on-primary-fixed;
+    background-color: rgba(0, 0, 0, 0.01);
+    text-color: @on-surface;
     border-color: transparent;
 }
 
 element.alternate.normal {
-    text-color: @on-primary-fixed;
-    background-color: @inverse-primary;
+    text-color: @on-surface;
+    background-color: rgba(0, 0, 0, 0.01);
 }
 
 element normal.urgent {
@@ -106,9 +105,9 @@ element normal.active {
 }
 
 element selected.normal {
-    background-color: @primary-container;
-    text-color: @primary;
-    border-color: @primary;
+    background-color: @primary;
+    text-color: @on-primary;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 element selected.urgent {

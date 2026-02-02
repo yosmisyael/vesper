@@ -15,7 +15,7 @@
 
 configuration {
     modi:                  "clipboard:greenclip print";
-    font:                  "SF Pro Display 12";
+    font:                  "SF Pro Display 13";
     show-icons:            false;
     display-clipboard:     "󰅌";
     hover-select:          false;
@@ -28,21 +28,19 @@ configuration {
 
 // Main Window - Clipboard Manager Style
 window {
-    height:                      27.6em;
-    width:                       45em;
+    height:                      19em;
+    width:                       30em;
     transparency:                "real";
     fullscreen:                  false;
     enabled:                     true;
     cursor:                      "default";
-    spacing:                     0em;
-    padding:                     0em;
-    border:                      2px solid;
-    border-color:                @primary;
     location:                    center;
-    background-color:            @on-primary-fixed-variant;
     anchor:                      center;
     border-radius:               32px;
     expand:                      false;
+    border:                      1px;
+    border-color:                rgba(255, 255, 255, 0.2);
+    background-color:            rgba(0, 0, 0, 0.102);
 }
 
 mainbox {
@@ -58,52 +56,53 @@ mainbox {
 inputbar {
     enabled:                     true;
     spacing:                     0em;
-    padding:                     1.25em;
-    border-radius:               20px 20px 0px 0px;
+    padding:                     4px 4px 8px 4px;
     children:                    [ "textbox-prompt-colon", "entry" ];
-    background-color:            transparent;
-    border:                      0px 0px 1px 0px solid;
-    border-color:                @outline-variant;
+    background-color:            rgba(0, 0, 0, 0.102);
+    border:                      1px 1px 0 1px;
+    border-color:                rgba(255, 255, 255, 0.2);
 }
 
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         "󰅌";
-    border-radius:               1.15em 0em 0em 1.15em;
-    padding:                     0.7em 0.3em 0.6em 1.2em;
-    text-color:                  @primary-fixed-dim;
-    background-color:            @inverse-primary;
-    font:                        "SF Pro Display 14";
+    border-radius:               32px 0 0 32px;
+    padding:                     12px 24px;
+    vertical-align:              0.5;
+    background-color:            rgba(0, 0, 0, 0.01);
+    text-color:                  @on-surface;
+    font:                        "JetBrainsMono Nerd Font Propo 16";
 }
+
 entry {
     enabled:                     true;
     spacing:                     0em;
-    padding:                     1em;
-    background-color:            @inverse-primary;
-    text-color:                  @primary-fixed-dim;
+    padding:                     18px 18px 18px 0;
+    vertical-align:              0.5;
+    background-color:            rgba(0, 0, 0, 0.01);
+    text-color:                  @on-surface;
     cursor:                      text;
     placeholder:                 "Search clipboard history...";
     placeholder-color:           @outline;
-    border-radius:               0em 1.15em 1.15em 0em;
+    border-radius:               0 32px 32px 0;
 }
 
 // Clipboard History List
 listview {
-    padding:                     1.25em 1em;
-    spacing:                     0.5em;
+    padding:                     12px;
     enabled:                     true;
     columns:                     1;
-    lines:                       10;
+    lines:                       5;
+    spacing:                     8;
     cycle:                       true;
     dynamic:                     true;
-    scrollbar:                   true;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
     cursor:                      "default";
-    background-color:            @on-primary-fixed;
+    background-color:            rgba(0, 0, 0, 0.01);
     text-color:                  @on-surface;
     border-radius:               32px;
 }
@@ -111,30 +110,26 @@ listview {
 // Clipboard Entry Elements
 element {
     enabled:                     true;
-    spacing:                     0.8em;
-    padding:                     0.8em 1em;
+    padding:                     18px;
     border-radius:               20px;
     background-color:            transparent;
-    text-color:                  @on-surface;
     cursor:                      pointer;
     orientation:                 horizontal;
-    border:                      2px solid;
-    border-color:                transparent;
 }
 
 element.normal.normal {
-    background-color:            @inverse-primary;
-    text-color:                  @primary-fixed;
+    background-color:            rgba(0, 0, 0, 0.01);
+    text-color:                  @on-surface;
 }
 
 element.selected.normal {
-    background-color:            @primary-fixed-dim;
-    text-color:                  @on-primary-fixed;
+    background-color:            @primary;
+    text-color:                  @on-primary;
 }
 
 element.alternate.normal {
-    background-color:            @inverse-primary;
-    text-color:                  @primary-fixed;
+    background-color:            rgba(0, 0, 0, 0.01);
+    text-color:                  @on-surface;
 }
 
 element.normal.urgent {
@@ -172,9 +167,9 @@ element-text {
 
 // Scrollbar for Long Clipboard History
 scrollbar {
-    handle-color:                @primary;
+    handle-color:                @primary-fixed;
     handle-width:                8px;
-    background-color:            @on-primary-fixed-variant;
+    background-color:            @inverse-primary;
     border-radius:               16px;
 }
 

@@ -14,7 +14,7 @@
 // by yosmisyael (2024)
 
 configuration {
-    font:                  "SF Pro Display 12";
+    font:                  "SF Pro Display 13";
     show-icons:            true;
     icon-theme:            "Papirus-Dark";
     hover-select:          false;
@@ -27,21 +27,16 @@ configuration {
 
 // Main Window - Screenshot Menu Style
 window {
-    height:                      12.5em;
-    width:                       24em;
+    height:                      9.6em;
+    width:                       18em;
     transparency:                "real";
-    fullscreen:                  false;
     enabled:                     true;
-    cursor:                      "default";
-    spacing:                     0em;
-    padding:                     0em;
-    border:                      2px solid;
-    border-color:                @primary;
-    location:                    center;
-    background-color:            @on-primary-fixed-variant;
+    spacing:                     0;
+    padding:                     0;
     anchor:                      center;
-    border-radius:               32px;
-    expand:                      false;
+    location:                    center;
+    background-color:            transparent;
+
 }
 
 mainbox {
@@ -49,83 +44,82 @@ mainbox {
     spacing:                     0em;
     padding:                     0em;
     orientation:                 vertical;
-    children:                    [ "inputbar", "listview" ];
+    children:                    [ "textbox-prompt-colon", "content" ];
     background-color:            transparent;
-}
-
-// Header with Screenshot Icon and Info
-inputbar {
-    enabled:                     true;
-    spacing:                     0em;
-    padding:                     1em;
-    border-radius:               24px 24px 0px 0px;
-    children:                    [ "textbox-prompt-colon" ];
-    background-color:            transparent;
-    border:                      0px 0px 1px 0px solid;
 }
 
 textbox-prompt-colon {
     enabled:                     true;
-    expand:                      true;
-    str:                         "Screenshot";
-    padding:                     0em;
-    text-color:                  @primary-fixed;
-    background-color:            transparent;
-    font:                        "SF Pro Display 15";
+    expand:                      false;
     horizontal-align:            0.5;
-    vertical-align:              0.5;
+    padding:                     18px 24px;
+    str:                         "Screen Capture"; 
+    text-color:                  @on-surface;
+    background-color:            rgba(0, 0, 0, 0.105);
+    border-radius:               32px 32px 0 0;
+    border:                      1px;
+    border-color:                rgba(215, 220, 255, 0.2);
+}
+
+content {
+    enabled:                     true;  
+    border-radius:               0 0 32px 32px;
+    padding:                     0em;
+    spacing:                     0em;
+    orientation:                 vertical;
+    children:                    [ "listview" ];
+    background-color:            rgba(0, 0, 0, 0.105);
+    border:                      1px;
+    border-color:                rgba(255, 255, 255, 0.2);
 }
 
 // Options List
 listview {
-    padding:                     1em;
-    spacing:                     0.8em;
+    padding:                     8px;
+    spacing:                     0;
     enabled:                     true;
     columns:                     1;
-    lines:                       8;
+    lines:                       4;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    fixed-height:                false;
     fixed-columns:               true;
     cursor:                      "default";
-    background-color:            @on-primary-fixed;
-    border-radius:               32px;
+    background-color:            transparent;
+    border-radius:               32px 32px 0 0;
 }
 
 // Screenshot Option Elements
 element {
     enabled:                     true;
-    spacing:                     1em;
-    padding:                     1em 2em;
-    border-radius:               1em;
-    background-color:            @inverse-primary;
-    text-color:                  @on-primary-fixed;
+    padding:                     18px;
+    border-radius:               20px;
+    background-color:            transparent;
+    text-color:                  @on-surface;
     cursor:                      pointer;
     orientation:                 horizontal;
     border:                      2px solid;
 }
 
 element.normal.normal {
-    background-color:            @inverse-primary;
-    text-color:                  @primary-fixed-dim;
+    background-color:            transparent;
+    text-color:                  @on-surface;
 }
 
 element.selected.normal {
-    background-color:            @primary-fixed-dim;
-    text-color:                  @on-primary-surface-variant;
+    background-color:            @primary;
+    text-color:                  @on-primary;
 }
 
 element.alternate.normal {
-    background-color:            @inverse-primary;
-    text-color:                  @primary-fixed-dim;
+    background-color:            transparent;
+    text-color:                  @on-surface;
 }
 
 element.selected.alternate {
-    background-color:            @secondary-container;
-    text-color:                  @on-secondary-container;
+    background-color:            @on-primary;
 }
 
 // Icon and Text Layout
@@ -141,10 +135,10 @@ element-text {
     background-color:            transparent;
     text-color:                  inherit;
     expand:                      true;
-    horizontal-align:            0.0;
+    horizontal-align:            0.5;
     vertical-align:              0.5;
     cursor:                      inherit;
-    font:                        "SF Pro Display 11";
+    font:                        "SF Pro Display 13";
 }
 
 // Message Area for Additional Info

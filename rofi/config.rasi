@@ -33,53 +33,78 @@ configuration {
 
 // Main Window
 window {
-    height:                34em;
-    width:                 56em;
-    transparency:          "real";
+    height:                21.1em;
+    width:                 35em;
     fullscreen:            false;
     enabled:               true;
     cursor:                "default";
     spacing:               0em;
-    padding:               0em;
-    border:                2px solid;
-    border-color:          @primary;
-    location:              center;
-    background-color:      @surface;
-    anchor:                center;
-    border-radius:         32px;
+    location:              north;
+    anchor:                north;
+    y-offset:              10em;   
+    background-color:      transparent;
+    transperancy:          "real";
 }
 
 mainbox {
     enabled:               true;
-    spacing:               0em;
-    padding:               0em;
+    spacing:               12px;
+    padding:               12px;
     orientation:           vertical;
-    children:              [ "inputbar", "content" ];
+    children:              [ "header", "content" ];
     background-color:      transparent;
-    background-image:      url("~/.cache/vesper/wall.blur", height);
-    border-radius:         22px;
+    transperancy:          "real";
 }
 
-// Input Bar with Background Image
+header {
+    enabled:               true;
+    padding:               0;
+    spacing:               12px;
+    orientation:           horizontal;
+    expand:                false;
+    children:              [ "inputbar", "mode-switcher" ];
+    background-color:      transparent;
+    // background-image:      url("~/.cache/rofi/wall.thmb", width);
+    //border-radius:         32px;
+}
+
 inputbar {
     enabled:               true;
-    spacing:               0em;
-    padding:               5em;
-    children:              [ "entry" ];
+    children:              [ "textbox-prompt-colon", "entry" ];
     background-color:      transparent;
-    background-image:      url("~/.cache/rofi/wall.thmb", width);
-    border-radius:         22px 22px 0px 0px;
+    transperancy:          "real";
+    spacing:               0;
+    orientation:           horizontal;
+    expand:                true;
+    border-radius:         32px;
+    border:                0px;
+    border-color:          @primary;
+}
+
+textbox-prompt-colon {
+    enabled:               true;
+    expand:                false;
+    str:                   "";
+    border-radius:         32px 0 0 32px;
+    vertical-align:        0.5;
+    padding:               12px 24px;
+    background-color:      rgba(0, 0, 0, 0.2);
+    border:                1px 0px 1px 1px;
+    border-color:          rgba(255, 255, 255, 0.2);
+    text-color:            @primary;
+    font:                  "JetBrainsMono Nerd Font Propo 16";
 }
 
 entry {
-    border-radius:         2em;
+    border-radius:         0 32px 32px 0;
     enabled:               true;
-    spacing:               1em;
-    padding:               1em;
-    text-color:            @primary-fixed;
-    background-color:      @on-primary-fixed;
+    padding:               18px 18px 18px 0px;
+    background-color:      rgba(0, 0, 0, 0.2);
+    text-color:            @on-surface;
+    border-color:          rgba(255, 255, 255, 0.2);
+    border:                1px 1px 1px 0px;
     cursor:                text;
-    placeholder:           "Search applications...";
+    placeholder:           "Launch app, run script, or search files...";
     placeholder-color:     @outline;
 }
 
@@ -87,20 +112,22 @@ entry {
 content {
     padding:               0em;
     spacing:               0em;
-    orientation:           horizontal;
-    children:              [ "mode-switcher", "listview" ];
-    background-color:      @on-primary-fixed;
-    border-radius:         0px 0px 22px 22px;
+    orientation:           vertical;
+    children:              [ "listview" ];
+    background-color:      rgba(0, 0, 0, 0.102);
+    border-radius:         32px;
+    border:                1px;
+    border-color:          rgba(255, 255, 255, 0.2);
 }
 
 listview {
-    padding:               1.5em;
-    spacing:               0.5em;
+    padding:               12px;
+    spacing:               0em;
     enabled:               true;
-    columns:               2;
-    lines:                 8;
+    columns:               1;
+    lines:                 5;
     cycle:                 true;
-    dynamic:               true;
+    dynamic:               false;
     scrollbar:             false;
     layout:                vertical;
     reverse:               false;
@@ -112,39 +139,41 @@ listview {
 }
 
 mode-switcher {
+    padding:               10px;
+    border-radius:         32px;
     enabled:               true;
-    width:                 6.6em;
-    padding:               1.5em;
     spacing:               12px;
-    background-color:      transparent;
-    orientation:           vertical;
+    background-color:      rgba(0, 0, 0, 0.2);
+    border-color:          rgba(255, 255, 255, 0.2);
+    border:                1px;
+    orientation:           horizontal;
     vertical-align:        0;
     horizontal-align:      0.5;
 }
 
 button {
     enabled:               true;
-    padding:               24px;
+    padding:               8px 12px;
     expand:                false;
     font:                  "JetBrainsMono Nerd Font Propo 12";
     border-radius:         50%;
-    background-color:      @surface;
-    text-color:            @on-surface;
+    background-color:      rgba(0, 0, 0, 0.1);
+    text-color:            @primary;
     cursor:                pointer;
     border:                0px;
 }
 
 button.selected {
-    background-color:      @inverse-primary;
-    text-color:            @primary-fixed;
+    background-color:      @primary;
+    text-color:            @on-primary;
 }
 
 // List Elements
 element {
     enabled:               true;
     spacing:               12px;
-    padding:               20px;
-    border-radius:         36px;
+    padding:               16px;
+    border-radius:         24px;
     background-color:      transparent;
     text-color:            @on-surface;
     cursor:                pointer;
@@ -157,8 +186,8 @@ element.normal.normal {
 }
 
 element.selected.normal {
-    background-color:      @inverse-primary;
-    text-color:            @primary-fixed;
+    background-color:      @primary;
+    text-color:            @on-primary;
 }
 
 element.alternate.normal {
