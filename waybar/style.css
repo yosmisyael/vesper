@@ -22,27 +22,21 @@
     border-radius: 0;
     font-family: "SF Pro Display", "JetBrains Mono Nerd Propo", "Nerd Font", sans-serif;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 13.4px;
     min-height: 0;
 }
 
 window#waybar {
-    background: @surface_container_highest;
-    border-radius: 28px;
+    background-color: alpha(@surface_container_highest, .7);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-tooltip * {
-    background-color: @surface_container_highest;
-    color: @primary;
-    text-shadow: none;
-    border-radius: 12px;
-}
 tooltip box {
-    background-color: @surface_container_highest;
+    background-color: rgba(0, 0, 0, .2);
 }
 
 tooltip label {
-    background-color: transparent;
     color: @primary;
     padding: 5px;
 }
@@ -50,15 +44,15 @@ tooltip label {
 .modules-left,
 .modules-center,
 .modules-right {
-    border-radius: 24px;
-    padding: 8px;
+    padding: 6px 6px;
 }
 
-#workspaces,
 #window,
 #clock,
+#custom-notification,
 #network,
 #bluetooth,
+#battery,
 #pulseaudio,
 #tray,
 #custom-power,
@@ -66,37 +60,42 @@ tooltip label {
 #cpu,
 #memory,
 #temperature,
-#custom-updates,
-#custom-menu {
-    background: transparent;
+#custom-updates 
+{
     color: @primary;
     border-radius: 20px;
-    padding: 4px 12px;
+    padding: 0px 12px;
     min-width: 24px;
     transition: all 0.3s ease-in-out;
 }
 
+#window {
+  min-width: 0;
+  padding-right: 14px;
+}
+
 #custom-state {
-  min-width: 18px;
   font-size: 14px;
+  min-width: 14px;
+  padding: 0 13px 0 10px;
+  color: @primary;
 }
 
 #custom-menu {
-    background: @tertiary;
-    color: @on_tertiary;
+    padding: 0px 0px 0px 8px;
+    /*background: alpha(@tertiary, 0.85);*/
+    color: alpha(@tertiary, 0.88);
     min-width: 32px;
     transition: all 0.3s ease-in-out;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 #custom-menu:hover {
-    background-color: alpha(@tertiary, 0.85);
-    color: alpha(@on_tertiary, 0.85);
+    color: @tertiary;
     transition: all 0.3s ease-in-out;
 }
 
 #bluetooth:hover,
-#pulseaudio:hover,
 #custom-updates:hover,
 #custom-power:hover {
     background: @secondary_container;
@@ -105,50 +104,55 @@ tooltip label {
 }
 
 #workspaces {
-    padding: 0;
-    background: transparent;
+  padding: 4px 2px;
+  background-color: @primary_container;
+  border-radius: 20px;
 }
 
 #workspaces button {
-    padding: 0 12px;
     margin: 0 3px;
-    border-radius: 18px;
-    color: @primary;
-    background: transparent;
+    border-radius: 24px;
+    min-height: 6px;
+    min-width: 6px;
+    background-color: alpha(@primary, 0.5);
     transition: all 0.3s ease-in-out;
-    background: inherit;
-    box-shadow: inset 0 0 @on_surface_variant;
 }
 
 #workspaces button:hover {
-    background: @primary_container;
-    color: @on_primary_container;
-    transition: all 0.3s ease-in-out;
+    background: @primary;
+    color: @on_primary;
+    transition: all 300ms ease-in-out;
 }
 
 #workspaces button.active {
     background: @primary;
     color: @on_primary;
     font-weight: 600;
-    min-width: 32px;
+    min-width: 36px;
     transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.urgent {
     background: @error_container;
-    color: @on_error_container;
+    color: @error_container;
     transition: all 0.3s ease-in-out;
 }
 
 #window {
+    border-radius: 13px 20px 20px 13px;
     background-color: @surface_variant;
     color: @on_surface_variant;
     font-weight: 400;
 }
 
+/* group system stats */
+box#performance {
+  background-color: @surface_variant;
+  border-radius: 20px;
+}
+
 #clock {
-    background: @primary;
-    color: @on_primary;
+    color: alpha(@primary, 0.85);
     padding: 4px 12px;
     border-radius: 20px;
     min-width: 32px;
@@ -156,19 +160,34 @@ tooltip label {
 }
 
 #clock:hover {
-    background: alpha(@primary, 0.85);
-    color: alpha(@on_primary, 0.85);
+    color: @primary;
     transition: all 0.3s ease-in-out;
 }
 
+#custom-notification,
+#pulseaudio,
 #network {
-    background: @primary_container;
-    color: @on_primary_container;
+  padding-left: 8px;
+  padding-right: 0px;
+  /*background-color: @surface_variant;*/
+  color: @on_surface_variant;
+  transition: all 300ms ease-in-out;
 }
 
+#custom-notification {
+  padding-left: 12px;
+}
+
+#pulseaudio {
+  padding-left: 14px;
+  padding-right: 8px;
+}
+
+#custom-notification:hover,
+#pulseaudio:hover,
 #network:hover {
-    background: @primary;
-    color: @on_primary;
+  /*background-color: @inverse_primary;*/
+  color: @inverse_on_primary;
 }
 
 #network.disconnected {
@@ -197,10 +216,9 @@ tooltip label {
 }
 
 /* Group Power */
-box#power {
-    background-color: @secondary_container;
-    color: @on_secondary_container;
-    padding: 4px 12px;
+box#system {
+    background-color: @surface_variant;
+    color: alpha(@primary, 0.7);
     border-radius: 20px;
     transition: all 0.3s ease-in-out;
 }
@@ -210,15 +228,8 @@ box#power {
   font-size: 14px;
 }
 
-box#power:hover {
-    background-color: @on_secondary_container;
-    color: @secondary_container;
-    transition: all 0.3s ease-in-out;
-
-}
-
 #tray {
-    background-color: @surface_container;
+    background-color: @primary_container;
     padding: 4px 12px;
 }
 
@@ -230,18 +241,18 @@ box#power:hover {
 }
 
 #custom-power {
-    background: @secondary_fixed_dim;
-    color: @on_secondary_fixed;
+    background: alpha(@secondary_fixed_dim, 0.85);
+    color: alpha(@on_secondary_fixed, 0.85);
     font-size: 16px;
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: 20px 13px 13px 20px;
     transition: all 0.3s ease-in-out;
     min-width: 32px;
 }
 
 #custom-power:hover {
-    background: alpha(@secondary_fixed_dim, 0.85);
-    color: alpha(@on_secondary_fixed, 0.85);
+    background: @secondary_fixed_dim;
+    color: @on_secondary_fixed;
     transition: all 0.3s ease-in-out;
 }
 

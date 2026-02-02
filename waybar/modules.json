@@ -1,189 +1,245 @@
-//                                                                
-//                                                                
-//     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
+//
+//
+//     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$
 //    |  $$  /$$//$$__  $$ /$$_____/ /$$__  $$ /$$__  $$ /$$__  $$
 //     \  $$/$$/| $$$$$$$$|  $$$$$$ | $$  \ $$| $$$$$$$$| $$  \__/
-//      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$      
-//       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$      
-//        \_/    \_______/|_______/ | $$____/  \_______/|__/      
-//                                  | $$                          
-//                                  | $$                          
+//      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$
+//       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$
+//        \_/    \_______/|_______/ | $$____/  \_______/|__/
+//                                  | $$
+//                                  | $$
 //                                  |__/
 //
 // waybar modules
 // by yosmisyael (2024)
 
 {
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "on-click": "activate",
+    "cursor": "pointer",
+    "persistent-workspaces": {
+      "*": 3
+    },
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{title} ;; {class}",
+    "max-length": 36,
+    "separate-outputs": true,
+    "rewrite": {
+      "^$|^( ;; )+$": "~",
+      "(.*) - Chromium.*": "   $1",
+      "(.*) ;; microsoft-edge": "   $1",
+      "nvim (.*) ;; kitty": "   $1",
+      "nvim ;; kitty": "",
+      "(.*) - Thunar ;; .*": "   $1",
+      "kitty ;; kitty": "   zsh",
+      "~(.*) ;; kitty": "    $1",
+      "zsh ;; kitty": "   zsh",
+      "yosev@(.*) ;; kitty": "   zsh",
+      "kitty(.*)": "   zsh",
+      "cava ;; kitty": "󰝚    cava",
+      "btop ;; kitty": "   btop",
+      "update ;; kitty": "    System update",
+      "^(?!nvim|btop|cava|zsh|update|kitty|yosev@)(.*) ;; kitty$": "    $1",
+      "spotify(.*) ;; spotify": "   $1",
+      "(.*) ;; spotify": "   $1",
+      "(.*) ;; Notion": "  $1",
+      "vlc (.*) ;; vlc": "   $1",
+      "(.*) ;; mirage": "   $1",
+      "(.*);; libreoffice-(.*)": "   $1",
+      "(.*) ;; blueman-manager": "󰂯   $1",
+      "nmtui ;; floating_nmtui": "󰲐   Network",
+      "(.*) ;; polkit-gnome-authentication-(.*)": "󰌾   $1",
+      "(.*) ;; org.pulseaudio.pavucontrol": "   $1",
+      "(.*)jetbrains-phpstorm(.*)": "   Php Storm",
+      "(.*)jetbrains-webstorm(.*)": "   Web Storm",
+      "(.*)jetbrains-studio(.*)": "󰀴   Android Studio",
+      "(.*) ;; zoom": "   Zoom | $1",
+      "(.*) ;; org.bleachbit.BleachBit": "󰗩   $1",
+      "(.*) ;; vesktop": "   $1",
+      "(.*) ;; obsidian": "󰎞   $1",
+      "(.*) ;; electron": "󱀤   $1",
+      "(.*) ;; org.gnome.Showtime": "    $1",
+      "(.*) ;; hyprland-share-picker": "    $1",
+      "(.*) ;; com.obsProject.Studio": "   $1",
+      "(.*) ;; org.gnome.Lollypop": "󰎆   $1"
+    }
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "power profile: {profile}\ndriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "󰌪",
+      "performance": "󱐋",
+      "balanced": "󰾅",
+      "power-saver": "󰌪"
+    }
+  },
+
+  "clock": {
+    "format": "{:%a %d, %H:%M}",
+    "tooltip": true,
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-scroll": 1,
+      "format": {
+        "months": "<span><b>{}</b></span>",
+        "days": "<span><b>{}</b></span>",
+        "weeks": "<span><b>W{}</b></span>",
+        "weekdays": "<span><b>{}</b></span>",
+        "today": "<span><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  "network": {
+    "format-ethernet": "󰈀  Connected",
+    "format-linked": "󰈀  {ifname}",
+    "format-disconnected": "󰤮  Disconnected",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "󰤨    {essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr}",
+    "tooltip-format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}",
+    "max-length": 50,
+    "format-wifi": "{icon}",
+    "format-icons": {
+      "wifi": ["󰤯", "󰤟", "󰤢", "󰤨"],
+      "ethernet": "󰈀",
+      "disconnected": "󰤮"
+    },
+    "on-click": "kitty --class floating_nmtui -e nmtui"
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "blueman-manager"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰸈 Muted",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󱡒",
+      "headset": "󰋎",
+      "phone": "󰄜",
+      "portable": "󰦧",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "~/.config/vesper/scripts/volume.sh mute"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 24
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰂄 {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "on-click": "",
+    "tooltip-format": "{timeTo}, {power}W"
+  },
+
+  "tray": {
+    "spacing": 10
+  },
+
+  "cpu": {
+    "format": "   {usage}%"
+  },
+
+  "memory": {
+    "format": "  {}%"
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [" ", "", " "]
+  },
+
   "custom/menu": {
     "format": "󰮯",
     "tooltip": false,
     "on-click": "rofi -show drun"
   },
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "format": "{name}",
-    "persistent-workspaces": {
-      "*": 3
-    }
+
+  "custom/updates": {
+    "format": "  {}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/.config/vesper/scripts/package-update.sh",
+    "interval": 1800,
+    "signal": 1,
+    "hide-empty-text": true,
+    "on-click": ""
   },
 
-    "hyprland/window": {
-        "format": "{}",
-        "max-length": 42,
-        "separate-outputs": true
-    },
+  "custom/notification": {
+    "format": "󰂚",
+    "tooltip-format": "Notification Center",
+    "on-click": "sleep 0.1; swaync-client -t"
+  },
 
-    "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "power profile: {profile}\ndriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "󰌪",
-        "performance": "󱐋",
-        "balanced": "󰾅",
-        "power-saver": "󰌪"
-      }
-    },
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "~/.config/vesper/scripts/logout.sh"
+  },
 
-    "clock": {
-        "format-alt": "{:%H:%M}",
-        "format": "{:%H:%M - %d/%m/%Y}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode": "year",
-            "mode-mon-col": 3,
-            "weeks-pos": "right",
-            "on-scroll": 1,
-            "format": {
-                "months": "<span><b>{}</b></span>",
-                "days": "<span><b>{}</b></span>",
-                "weeks": "<span><b>W{}</b></span>",
-                "weekdays": "<span><b>{}</b></span>",
-                "today": "<span><b><u>{}</u></b></span>"
-            }
-        }
-    },
+  "custom/state": {
+    "format": "",
+    "tooltip": false
+  },
 
-    "network": {
-        "format-ethernet": "󰈀  Connected",
-        "format-linked": "󰈀  {ifname}",
-        "format-disconnected": "󰤮  Disconnected",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "tooltip-format-wifi": "󰤨    {essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr}",
-        "tooltip-format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}",
-        "max-length": 50,
-        "format-wifi": "{icon}    {essid}",
-        "format-icons": {
-          "wifi": [
-            "󰤯",
-            "󰤟",
-            "󰤢",
-            "󰤨"
-          ],
-          "ethernet": "󰈀",
-          "disconnected": "󰤮"
-        },
-        "on-click": "kitty --class floating_nmtui -e nmtui"
+  "group/performance": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "not-memory",
+      "transition-left-to-right": false
     },
+    "modules": [
+      "custom/state",
+      "cpu",
+      "memory",
+      "temperature",
+      "custom/updates"
+    ]
+  },
 
-    "bluetooth": {
-        "format": "󰂯",
-        "format-disabled": "󰂲",
-        "format-off": "󰂲",
-        "format-connected": "󰂱 {num_connections}",
-        "tooltip-format": "{controller_alias}\t{controller_address}",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "blueman-manager"
-    },
-
-    "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-muted": "󰸈 Muted",
-        "format-icons": {
-            "headphone": "󰋋",
-            "hands-free": "󱡒",
-            "headset": "󰋎",
-            "phone": "󰄜",
-            "portable": "󰦧",
-            "car": "󰄋",
-            "default": ["󰕿", "󰖀", "󰕾"]
-        },
-        "scroll-step": 5,
-        "on-click": "pavucontrol",
-        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-    },
-
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 24
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-plugged": "󰂄 {capacity}%",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "on-click": "",
-        "tooltip-format": "{timeTo}, {power}W"
-    },
-
-    "tray": {
-        "spacing": 10
-    },
-
-    "custom/power": {
-        "format": "󰐥",
-        "tooltip": false,
-        "on-click": "~/.config/vesper/scripts/logout.sh"
-    },
-
-    "custom/state": {
-        "format": "",
-        "tooltip": false
-    },
-
-    "group/power": {
-      "orientation": "horizontal",
-      "modules": [
-        "power-profiles-daemon",
-        "battery"
-      ]
-    },
-
-    "group/system": {
-      "orientation": "inherit",
-      "drawer": {
-        "transition-duration": 300,
-        "children-class": "not-memory",
-        "transition-left-to-right": false
-      },
-      "modules": ["custom/state", "cpu", "memory", "temperature"]
-    },
-
-    "cpu": {
-        "format": "   {usage}%"
-    },
-
-    "memory": {
-        "format": "  {}%"
-    },
-
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": [" ", "", " "]
-    },
-
-    "custom/updates": {
-      "format": "   {}",
-      "escape": true,
-      "return-type": "json",
-      "exec": "~/.config/vesper/scripts/package-update.sh",
-      "interval": 1800,
-      "signal": 1,
-      "hide-empty-text": true,
-      "on-click": ""
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/notification",
+      "network",
+      "pulseaudio", 
+      "group/performance",
+      "battery", 
+      "custom/power"
+    ]
   }
 }

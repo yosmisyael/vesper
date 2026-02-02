@@ -11,106 +11,108 @@
  *                                   $$ |                          
  *                                   \__|     
  *
- * waybar colors default
+ * Waybar Theming
  * by yosmisyael (2024)
  */
 
-    @define-color background #18120b;
+
+    @define-color background #131315;
 
     @define-color error #ffb4ab;
 
     @define-color error_container #93000a;
 
-    @define-color inverse_on_surface #362f27;
+    @define-color inverse_on_surface #313032;
 
-    @define-color inverse_primary #805611;
+    @define-color inverse_primary #5b5d76;
 
-    @define-color inverse_surface #ede0d4;
+    @define-color inverse_surface #e5e1e4;
 
-    @define-color on_background #ede0d4;
+    @define-color on_background #e5e1e4;
 
     @define-color on_error #690005;
 
     @define-color on_error_container #ffdad6;
 
-    @define-color on_primary #452b00;
+    @define-color on_primary #2d2f45;
 
-    @define-color on_primary_container #ffddb5;
+    @define-color on_primary_container #e1e1ff;
 
-    @define-color on_primary_fixed #2a1800;
+    @define-color on_primary_fixed #181a2f;
 
-    @define-color on_primary_fixed_variant #633f00;
+    @define-color on_primary_fixed_variant #43455d;
 
-    @define-color on_secondary #3e2d16;
+    @define-color on_secondary #2f3039;
 
-    @define-color on_secondary_container #fbdebc;
+    @define-color on_secondary_container #e4e2f0;
 
-    @define-color on_secondary_fixed #271905;
+    @define-color on_secondary_fixed #1a1b24;
 
-    @define-color on_secondary_fixed_variant #57432b;
+    @define-color on_secondary_fixed_variant #464650;
 
-    @define-color on_surface #ede0d4;
+    @define-color on_surface #e5e1e4;
 
-    @define-color on_surface_variant #d3c4b4;
+    @define-color on_surface_variant #c7c5cd;
 
-    @define-color on_tertiary #253515;
+    @define-color on_tertiary #3a2f10;
 
-    @define-color on_tertiary_container #d5eaba;
+    @define-color on_tertiary_container #281f03;
 
-    @define-color on_tertiary_fixed #111f03;
+    @define-color on_tertiary_fixed #231b01;
 
-    @define-color on_tertiary_fixed_variant #3b4c29;
+    @define-color on_tertiary_fixed_variant #514624;
 
-    @define-color outline #9c8f80;
+    @define-color outline #919097;
 
-    @define-color outline_variant #4f4539;
+    @define-color outline_variant #46464d;
 
-    @define-color primary #f5bc6f;
+    @define-color primary #c3c4e1;
 
-    @define-color primary_container #633f00;
+    @define-color primary_container #45475f;
 
-    @define-color primary_fixed #ffddb5;
+    @define-color primary_fixed #e0e0fe;
 
-    @define-color primary_fixed_dim #f5bc6f;
+    @define-color primary_fixed_dim #c3c4e1;
 
     @define-color scrim #000000;
 
-    @define-color secondary #dec2a2;
+    @define-color secondary #c7c5d2;
 
-    @define-color secondary_container #57432b;
+    @define-color secondary_container #484853;
 
-    @define-color secondary_fixed #fbdebc;
+    @define-color secondary_fixed #e3e1ee;
 
-    @define-color secondary_fixed_dim #dec2a2;
+    @define-color secondary_fixed_dim #c7c5d2;
 
     @define-color shadow #000000;
 
-    @define-color source_color #84786b;
+    @define-color source_color #45475f;
 
-    @define-color surface #18120b;
+    @define-color surface #131315;
 
-    @define-color surface_bright #3f3830;
+    @define-color surface_bright #3a393b;
 
-    @define-color surface_container #251f17;
+    @define-color surface_container #201f21;
 
-    @define-color surface_container_high #302921;
+    @define-color surface_container_high #2a2a2b;
 
-    @define-color surface_container_highest #3b342b;
+    @define-color surface_container_highest #353436;
 
-    @define-color surface_container_low #211b13;
+    @define-color surface_container_low #1c1b1d;
 
-    @define-color surface_container_lowest #130d07;
+    @define-color surface_container_lowest #0e0e10;
 
-    @define-color surface_dim #18120b;
+    @define-color surface_dim #131315;
 
-    @define-color surface_tint #f5bc6f;
+    @define-color surface_tint #c3c4e1;
 
-    @define-color surface_variant #4f4539;
+    @define-color surface_variant #46464d;
 
-    @define-color tertiary #b9cda0;
+    @define-color tertiary #d6c599;
 
-    @define-color tertiary_container #3b4c29;
+    @define-color tertiary_container #baaa80;
 
-    @define-color tertiary_fixed #d5eaba;
+    @define-color tertiary_fixed #f3e1b4;
 
-    @define-color tertiary_fixed_dim #b9cda0;
+    @define-color tertiary_fixed_dim #d6c599;
+

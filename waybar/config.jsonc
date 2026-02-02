@@ -1,46 +1,31 @@
-//                                                                
-//                                                                
-//     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
+//
+//
+//     /$$    /$$ /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$
 //    |  $$  /$$//$$__  $$ /$$_____/ /$$__  $$ /$$__  $$ /$$__  $$
 //     \  $$/$$/| $$$$$$$$|  $$$$$$ | $$  \ $$| $$$$$$$$| $$  \__/
-//      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$      
-//       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$      
-//        \_/    \_______/|_______/ | $$____/  \_______/|__/      
-//                                  | $$                          
-//                                  | $$                          
+//      \  $$$/ | $$_____/ \____  $$| $$  | $$| $$_____/| $$
+//       \  $/  |  $$$$$$$ /$$$$$$$/| $$$$$$$/|  $$$$$$$| $$
+//        \_/    \_______/|_______/ | $$____/  \_______/|__/
+//                                  | $$
+//                                  | $$
 //                                  |__/
 //
 // waybar config
 // by yosmisyael (2024)
 
 {
-    "layer": "top",
-    "position": "top",
-    "spacing": 8,
-    "margin-top": 12,
-    "margin-left": 13,
-    "margin-right": 13,
+  "layer": "top",
+  "position": "top",
+  "spacing": 12,
+  "margin-top": 4,
+  "margin-left": 8,
+  "margin-right": 8,
 
-    "include": ["~/.config/waybar/modules.json"],
-    
-    "modules-left": [
-        "custom/menu",
-        "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    
-    "modules-center": [
-        "clock"
-    ],
-    
-    "modules-right": [
-        "group/system",
-        "custom/updates",
-        // "bluetooth",
-        "pulseaudio",
-        "tray",
-        "network",
-        "group/power",
-        "custom/power"
-    ]
+  "include": ["~/.config/waybar/modules.json"],
+
+  "modules-left": ["custom/menu", "hyprland/workspaces", "hyprland/window"],
+
+  "modules-center": [],
+
+  "modules-right": ["clock", "group/system"]
 }
