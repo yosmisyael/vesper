@@ -21,11 +21,11 @@
 /* CONTROL CENTER */
 
 .control-center {
-  background: @surface_container_highest;
+  background: rgba(0, 0, 0, 0.102);
   border-radius: 18px;
-  border: 2px solid @surface_container_low
-  box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
-  margin: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 4px 0 rgba(0,0,0,.4);
+  margin: 10px 10px;
   padding: 12px;
 }
 
@@ -217,10 +217,7 @@ progressbar {
   /* Buttons menu */
 .widget-buttons-grid {
   font-size: x-large;
-  padding: 8px;
-  margin-top: 12px;
-  border-radius: 18px;
-  background: @primary;
+  /*padding: 8px;*/
 }
 
 .widget-buttons-grid > flowbox > flowboxchild {
@@ -233,10 +230,11 @@ progressbar {
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
   padding: 6px 0;
-  background: transparent;
-  color: @on_primary;
-  border-radius: 38px;
-  min-width: 63px;
+  background: @primary_container;
+  color: @on_primary_container;
+  border-radius: 14px;
+  min-width: 66px;
+  min-height: 52px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -245,43 +243,57 @@ progressbar {
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: @hover;
+  background: @primary;
   transition: all 0.3s ease-in-out;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
-  background: @selected;
-  color: @on_primary_container;
+  background: @primary;
+  color: @on_primary;
 }
 
   /* Music player */
 .widget-mpris {
-  margin-top: 12px;
-  background: @primary;
+  margin-bottom: 12px;
   border-radius: 18px;
-  color: @on_primary;
-}
-
-.widget-mpris {
-  background: @primary;
+  color: @inverse_on_primary;
+  background: @inverse_primary;
   padding: 12px;
 }
 
-.mpris-overlay {
-  background: @primary;
-}
-
 .widget-mpris > box > button {
-  color: @on_primary;
-  border-radius: 20px;
-}
- 
-.widget-mpris button {
-  color: alpha(@on_primary, .6);
+  color: @primary;
 }
 
-.widget-mpris button:hover {
-  color: @text;
+.widget-mpris-player > box {
+  padding: 8px;
+  background-color: @inverse_primary;
+}
+
+.widget-mpris .widget-mpris-player button {
+  color: alpha(@inverse_on_primary, .5);
+  margin: 0 16px;
+  background-color: transparent;
+}
+
+.widget-mpris .widget-mpris-player button:hover {
+  color: @inverse_on_primary;
+}
+
+.widget-mpris .widget-mpris-player button:nth-child(2):nth-last-child(2),
+.widget-mpris .widget-mpris-player button:nth-child(3):nth-last-child(3) {
+  min-width: 48px;
+  min-height: 48px;
+  background-color: alpha(@primary_container, 0.7);
+  color: @on_primary_container;
+  border-radius: 50%;
+  transition: all 200ms ease-in-out;
+}
+
+.widget-mpris .widget-mpris-player button:nth-child(2):nth-last-child(2),
+.widget-mpris .widget-mpris-player button:nth-child(3):nth-last-child(3):hover {
+  background-color: @primary_container;
+  transition: all 200ms ease-in-out;
 }
  
 .widget-mpris-title {
@@ -359,7 +371,7 @@ progressbar {
 }
 
 .widget-backlight scale trough {
-  margin: 0 24px 0 16px;
+  margin: 0 28px 0 16px;
   background-color: @tertiary_container;
   min-height: 12px;
 }
